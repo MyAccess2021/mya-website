@@ -1,0 +1,292 @@
+import React from "react";
+import Header from "../components/header";
+import Footer from "../components/Footer";
+
+const styles = `
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .pd-page { font-family: 'DM Sans', sans-serif; background: #ffffff; color: #111; overflow-x: hidden; }
+  .cp-page, .pcb-page, .ed-page, .fw-page, .pd-page, .sr-page {
+  padding-top: 80px; /* Adjust this based on your Header's height */
+}
+
+  /* HERO */
+  .pd-hero { position: relative; width: 95%; margin: 1.5rem auto 0; border-radius: 1.25rem; overflow: hidden; min-height: 580px; display: flex; align-items: center; background: #0a0a0a; }
+  .pd-hero-bg { position: absolute; inset: 0; }
+  .pd-hero-bg img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.32); }
+  .pd-hero-overlay { position: absolute; inset: 0; background: linear-gradient(110deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.45) 55%, transparent 100%); }
+  .pd-hero-inner { position: relative; z-index: 2; width: 100%; padding: 4rem 5%; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .pd-hero-badge { display: inline-block; background: #f4531c; color: #fff; font-size: 0.66rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; padding: 5px 13px; border-radius: 3px; margin-bottom: 1.4rem; }
+  .pd-hero h1 { font-size: clamp(2.8rem, 6vw, 5.5rem); font-weight: 700; line-height: 1.0; color: #fff; letter-spacing: -2px; margin-bottom: 1.4rem; }
+  .pd-hero h1 em { color: #f4531c; font-style: normal; }
+  .pd-hero-sub { font-size: 1rem; color: rgba(255,255,255,0.68); line-height: 1.8; max-width: 460px; margin-bottom: 2.5rem; }
+  .pd-hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .pd-btn-fill { background: #f4531c; color: #fff; border: none; padding: 13px 26px; font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 0.73rem; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; border-radius: 4px; transition: .3s; }
+  .pd-btn-fill:hover { background: #ff6b35; transform: translateY(-2px); box-shadow: 0 8px 22px rgba(244,83,28,.35); }
+  .pd-btn-ghost { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.45); padding: 13px 26px; font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 0.73rem; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; border-radius: 4px; transition: .3s; }
+  .pd-btn-ghost:hover { border-color: #fff; }
+  .pd-metrics { display: flex; flex-direction: column; gap: 1rem; }
+  .pd-metric { background: rgba(255,255,255,0.07); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,.12); border-radius: 10px; padding: 1.2rem 1.8rem; display: flex; justify-content: space-between; align-items: center; transition: .3s; }
+  .pd-metric:hover { border-color: rgba(244,83,28,.5); background: rgba(244,83,28,.06); }
+  .pd-metric-val { font-size: 2rem; font-weight: 700; color: #f4531c; line-height: 1; }
+  .pd-metric-sub { font-size: 0.68rem; color: rgba(255,255,255,.5); margin-top: 3px; }
+  .pd-metric-label { font-size: 0.72rem; color: rgba(255,255,255,.55); text-align: right; line-height: 1.5; }
+
+  /* MARQUEE */
+  .pd-marquee { background: #111; padding: 11px 0; overflow: hidden; white-space: nowrap; }
+  .pd-marquee-track { display: inline-flex; animation: pdSlide 32s linear infinite; }
+  .pd-mitem { font-size: .7rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,.6); padding: 0 2rem; }
+  .pd-mitem strong { color: #f4531c; }
+  .pd-mdot { color: rgba(255,255,255,.2); padding: 0 .3rem; }
+  @keyframes pdSlide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* SECTIONS */
+  .pd-section { max-width: 1320px; margin: 0 auto; padding: 5.5rem 5%; }
+  .pd-eyebrow { font-size: .67rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #f4531c; margin-bottom: .75rem; display: flex; align-items: center; gap: 10px; }
+  .pd-eyebrow::before { content: ''; width: 26px; height: 2px; background: #f4531c; }
+  .pd-stitle { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -1px; line-height: 1.1; margin-bottom: 1.2rem; }
+  .pd-stitle em { color: #f4531c; font-style: normal; }
+
+  /* LAYER STACK */
+  .pd-layers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 4rem; }
+  .pd-layer-list { display: flex; flex-direction: column; gap: 8px; }
+  .pd-layer { display: flex; align-items: center; gap: 1rem; background: #f7f7f7; border: 1px solid #e8e8e8; border-radius: 8px; padding: .9rem 1.4rem; transition: .25s; cursor: default; }
+  .pd-layer:hover { border-color: #f4531c; background: #fff8f5; transform: translateX(5px); }
+  .pd-layer-dot { width: 36px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+  .pd-layer-name { font-size: .88rem; font-weight: 700; }
+  .pd-layer-spec { font-size: .75rem; color: #888; margin-left: auto; }
+  .pd-checklist { list-style: none; margin-top: 2rem; }
+  .pd-checklist li { display: flex; gap: 12px; align-items: flex-start; padding: .9rem 0; border-bottom: 1px solid #e8e8e8; font-size: .88rem; color: #555; }
+  .pd-checklist li:first-child { border-top: 1px solid #e8e8e8; }
+  .pd-check-mark { color: #f4531c; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  /* TOOLS */
+  .pd-dark-band { background: #111; padding: 5.5rem 0; }
+  .pd-dark-inner { max-width: 1320px; margin: 0 auto; padding: 0 5%; }
+  .pd-dark-eyebrow { font-size: .67rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #f4531c; margin-bottom: .75rem; display: flex; align-items: center; gap: 10px; }
+  .pd-dark-eyebrow::before { content: ''; width: 26px; height: 2px; background: #f4531c; }
+  .pd-dark-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -1px; line-height: 1.1; margin-bottom: 1.2rem; color: #fff; }
+  .pd-dark-title em { color: #f4531c; font-style: normal; }
+  .pd-tools-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; margin-top: 3rem; }
+  .pd-tool { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 12px; padding: 2.2rem; text-align: center; transition: .3s; }
+  .pd-tool:hover { border-color: #f4531c; transform: translateY(-5px); box-shadow: 0 12px 36px rgba(244,83,28,.12); }
+  .pd-tool-icon { font-size: 2rem; display: block; margin-bottom: 1rem; }
+  .pd-tool-name { font-size: .9rem; font-weight: 700; color: #fff; margin-bottom: .4rem; }
+  .pd-tool-desc { font-size: .78rem; color: #888; line-height: 1.6; }
+
+  /* SPECS TABLE */
+  .pd-tbl-wrap { border: 1px solid #e8e8e8; border-radius: 12px; overflow: hidden; margin-top: 3rem; }
+  .pd-tbl { width: 100%; border-collapse: collapse; }
+  .pd-tbl thead { background: #111; }
+  .pd-tbl th { color: #fff; font-size: .67rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 1rem 1.4rem; text-align: left; }
+  .pd-tbl td { padding: 1.05rem 1.4rem; border-bottom: 1px solid #e8e8e8; font-size: .88rem; background: #fff; transition: .2s; }
+  .pd-tbl td:last-child { color: #f4531c; font-weight: 600; }
+  .pd-tbl tbody tr:last-child td { border-bottom: none; }
+  .pd-tbl tbody tr:hover td { background: #fff8f5; }
+
+  /* WIDE IMAGE */
+  .pd-wide-img { border-radius: 14px; overflow: hidden; aspect-ratio: 21/8; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,.1); }
+  .pd-wide-img img { width: 100%; height: 100%; object-fit: cover; }
+  .pd-wide-img-text { position: absolute; bottom: 2.5rem; left: 4%; z-index: 2; }
+  .pd-wide-img-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(0,0,0,.75) 0%, transparent 50%), linear-gradient(to top, rgba(0,0,0,.6) 0%, transparent 50%); }
+  .pd-wide-img-text h3 { font-size: clamp(1.5rem, 3vw, 2.5rem); font-weight: 700; color: #fff; letter-spacing: -0.5px; margin-bottom: .5rem; }
+  .pd-wide-img-text p { color: rgba(255,255,255,.6); font-size: .9rem; max-width: 380px; }
+
+  /* CTA CARDS */
+  .pd-cta-split { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 4rem; }
+  .pd-cta-card { background: #f7f7f7; border: 1px solid #e8e8e8; border-radius: 14px; padding: 3rem; transition: .3s; }
+  .pd-cta-card.highlight { background: #fff0eb; border-color: #fde0d6; }
+  .pd-cta-card:hover { border-color: #f4531c; transform: translateY(-3px); box-shadow: 0 12px 36px rgba(244,83,28,.08); }
+  .pd-cta-card h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; }
+  .pd-cta-card p { color: #666; font-size: .88rem; line-height: 1.7; margin-bottom: 2rem; }
+
+  @media(max-width:960px) {
+    .pd-hero { width: 100%; border-radius: 0; margin-top: 0; }
+    .pd-hero-inner { grid-template-columns: 1fr; }
+    .pd-metrics { display: none; }
+    .pd-layers-grid { grid-template-columns: 1fr; }
+    .pd-tools-grid { grid-template-columns: repeat(2,1fr); }
+    .pd-cta-split { grid-template-columns: 1fr; }
+  }
+  @media(max-width:540px) {
+    .pd-tools-grid { grid-template-columns: 1fr; }
+  }
+`;
+
+const marqueeItems = ["Altium Designer","KiCad EDA","Signal Integrity","DFM Review","HDI Stackup","RF & Microwave","IPC-2581","Impedance Control"];
+
+const layers = [
+  { color:"#d4a017", name:"Top Copper (Signal)", spec:"1oz Cu" },
+  { color:"#2563eb", name:"Ground Plane", spec:"Solid Fill" },
+  { color:"#7c3aed", name:"Inner Signal 1", spec:"Controlled Z" },
+  { color:"#059669", name:"Power Plane", spec:"Split Pour" },
+  { color:"#9333ea", name:"Inner Signal 2", spec:"Controlled Z" },
+  { color:"#3b82f6", name:"Ground Plane", spec:"Solid Fill" },
+  { color:"#ca8a04", name:"Bottom Copper (Signal)", spec:"1oz Cu" },
+];
+
+const designChecks = [
+  "Controlled impedance routing for USB 3.0, PCIe, DDR5, and RF traces",
+  "Power delivery network (PDN) analysis and decoupling optimization",
+  "Thermal relief, copper pours, and heat dissipation planning",
+  "DFM (Design for Manufacture) and DFA (Design for Assembly) review",
+  "Gerber, ODB++, and IPC-2581 output formats for fabrication",
+];
+
+const tools = [
+  { icon:"🔧", name:"Altium Designer", desc:"Full schematic capture, layout, and design rule checking" },
+  { icon:"🖥️", name:"KiCad EDA", desc:"Open-standard PCB design for rapid prototyping" },
+  { icon:"📡", name:"HyperLynx", desc:"Pre/post-layout signal and power integrity analysis" },
+  { icon:"🌊", name:"Sonnet / HFSS", desc:"3D EM simulation for RF and microwave designs" },
+];
+
+const specRows = [
+  ["Layer Count","1–8 layers","Up to 32 layers"],
+  ["Min Trace/Space","5/5 mil","3/3 mil"],
+  ["Min Via Drill","0.3mm","0.1mm (laser)"],
+  ["Controlled Impedance","±10%","±5%"],
+  ["Board Size","Up to 350mm²","Custom"],
+  ["High-Speed Protocols","USB 2.0, I2C, SPI","PCIe Gen5, DDR5, USB4"],
+];
+
+export default function PCBDesign() {
+  return (
+    <div className="pd-page">
+      <style>{styles}</style>
+       <Header />
+
+      {/* HERO */}
+      <div className="pd-hero">
+        <div className="pd-hero-bg">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1400&q=80" alt="PCB Design" />
+        </div>
+        <div className="pd-hero-overlay" />
+        <div className="pd-hero-inner">
+          <div>
+            <div className="pd-hero-badge">Service</div>
+            <h1>PCB<br /><em>Design</em><br />Services</h1>
+            <p className="pd-hero-sub">From single-layer to 32-layer HDI boards — we design PCBs that meet signal integrity, thermal, and manufacturability requirements first time.</p>
+            <div className="pd-hero-actions">
+              <button className="pd-btn-fill">Start Your Design &rsaquo;</button>
+              <button className="pd-btn-ghost">View Portfolio</button>
+            </div>
+          </div>
+          <div className="pd-metrics">
+            <div className="pd-metric">
+              <div><div className="pd-metric-val">32</div><div className="pd-metric-sub">Max Layer Count</div></div>
+              <div className="pd-metric-label">HDI & Standard<br/>Stackup Design</div>
+            </div>
+            <div className="pd-metric">
+              <div><div className="pd-metric-val">3mil</div><div className="pd-metric-sub">Min Trace Width</div></div>
+              <div className="pd-metric-label">Fine-Pitch<br/>Capability</div>
+            </div>
+            <div className="pd-metric">
+              <div><div className="pd-metric-val">40GHz</div><div className="pd-metric-sub">Signal Integrity</div></div>
+              <div className="pd-metric-label">RF & High-Speed<br/>Design</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* MARQUEE */}
+      <div className="pd-marquee">
+        <div className="pd-marquee-track">
+          {[...marqueeItems, ...marqueeItems].map((item, i) => (
+            <React.Fragment key={i}>
+              <span className="pd-mitem"><strong>{item}</strong></span>
+              <span className="pd-mdot">·</span>
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+
+      {/* LAYER STACK */}
+      <div className="pd-section">
+        <div className="pd-eyebrow">Stackup Design</div>
+        <div className="pd-stitle">Layer <em>Strategy</em></div>
+        <div className="pd-layers-grid">
+          <div className="pd-layer-list">
+            {layers.map((l, i) => (
+              <div className="pd-layer" key={i}>
+                <div className="pd-layer-dot" style={{ background: l.color }} />
+                <div className="pd-layer-name">{l.name}</div>
+                <div className="pd-layer-spec">{l.spec}</div>
+              </div>
+            ))}
+          </div>
+          <div>
+            <div className="pd-eyebrow">Design Philosophy</div>
+            <div className="pd-stitle">Engineered <em>Right</em></div>
+            <p style={{ color:"#666", lineHeight:"1.8", fontSize:".94rem" }}>Good PCB layout isn't just about fitting components — it's about managing impedance, minimizing EMI, and ensuring the board is manufacturable at scale.</p>
+            <ul className="pd-checklist">
+              {designChecks.map((c, i) => (
+                <li key={i}><span className="pd-check-mark">✓</span>{c}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* WIDE IMAGE */}
+      <div className="pd-section" style={{ paddingTop:0 }}>
+        <div className="pd-wide-img">
+          <div className="pd-wide-img-overlay" />
+          <img src="https://images.unsplash.com/photo-1555664424-778a1e5e1b48?w=1400&q=80" alt="PCB Layout" />
+          <div className="pd-wide-img-text">
+            <h3>High-Speed Digital Design</h3>
+            <p>DDR5, USB 4.0, PCIe Gen 5 — our engineers handle the hardest routing challenges.</p>
+          </div>
+        </div>
+      </div>
+
+      {/* TOOLS */}
+      <div className="pd-dark-band">
+        <div className="pd-dark-inner">
+          <div className="pd-dark-eyebrow">Software & Tools</div>
+          <div className="pd-dark-title">Our <em>Toolchain</em></div>
+          <div className="pd-tools-grid">
+            {tools.map((t, i) => (
+              <div className="pd-tool" key={i}>
+                <span className="pd-tool-icon">{t.icon}</span>
+                <div className="pd-tool-name">{t.name}</div>
+                <div className="pd-tool-desc">{t.desc}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* SPECS TABLE */}
+      <div className="pd-section">
+        <div className="pd-eyebrow">Technical Specs</div>
+        <div className="pd-stitle">Design <em>Capabilities</em></div>
+        <div className="pd-tbl-wrap">
+          <table className="pd-tbl">
+            <thead>
+              <tr><th>Parameter</th><th>Standard</th><th>Advanced</th></tr>
+            </thead>
+            <tbody>
+              {specRows.map((r, i) => (
+                <tr key={i}><td>{r[0]}</td><td>{r[1]}</td><td>{r[2]}</td></tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div className="pd-cta-split">
+          <div className="pd-cta-card">
+            <h3>Send Your Schematic</h3>
+            <p>Have a schematic ready? We'll review it and provide a layout quote within 48 hours with DFM feedback included.</p>
+            <button className="pd-btn-ghost" style={{ color:"#111", borderColor:"#ccc" }}>Upload Schematic &rsaquo;</button>
+          </div>
+          <div className="pd-cta-card highlight">
+            <h3>Start From Scratch</h3>
+            <p>Need a full design from concept to Gerber? Our engineers handle schematic capture, simulation, and layout end-to-end.</p>
+            <button className="pd-btn-fill">Discuss Your Project &rsaquo;</button>
+          </div>
+        </div>
+      </div>
+       <Footer />
+    </div>
+  );
+}
