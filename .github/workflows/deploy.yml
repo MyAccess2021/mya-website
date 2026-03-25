@@ -17,7 +17,7 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
 
-            cd /root/projects/website
+            cd /root/projects/mya-website
 
             echo "Fetching latest code..."
             git fetch origin
