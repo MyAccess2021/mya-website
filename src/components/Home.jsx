@@ -16,7 +16,7 @@ const industryItems = [
 ];
 
 const serviceTags = [
-  { name: "Soldering & Rework",        icon: "/assets/home/SOLDERING@3x.webp",media: "/assets/home/soldering_rework.webp",type: "photo" },
+  { name: "Soldering & ",        icon: "/assets/home/SOLDERING@3x.webp",media: "/assets/home/soldering_rework.webp",type: "photo" },
   { name: "PCB Design",                icon: "/assets/home/pcbdesign@3x.webp",media: "/assets/home/pcb_design.webp",type: "photo"   },
   { name: "Embedded Development",      icon: "/assets/home/icon3.png",media: "/assets/home/embedded_development.webp",type: "photo"  },
   { name: "OpenCPU",                   icon: "/assets/home/cpu@3x.webp",media: "/assets/home/open_cpu.webp",type: "photo"  },
