@@ -9,7 +9,7 @@ import Sales from './components/Sales';
 import Community from './components/Community';
 import Careers from './components/Careers';
 import FactorySolutions from './components/FactorySolutions';
-import TermsAndConditions from './components/Termsandconditions';
+import TermsAndConditions from './components/Termsconditions';
 import OpenCPUOpenWRT from "./services/OpenCPUOpenWRT";
 import PCBFabrication from "./services/PCBFabrication";
 import ComponentProcurement from "./services/ComponentProcurement";
