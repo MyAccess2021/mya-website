@@ -19,8 +19,8 @@ import EmbeddedDevelopment from './services/EmbeddedDevelopment';
 import ThreeDPrinting from './services/Threedprinting';
 import PlasticInjectionMolding from './services/Plasticinjectionmolding';
 import FullstackDevelopment from './services/Fullstackdevelopment';
-import TestingDebugging from './services/Threedprinting';
-import ESDCompliance from './services/Plasticinjectionmolding';
+import TestingDebugging from './services/Testingdebugging';
+import ESDCompliance from './services/Esdcompliance';
 import MechanicalCAD from './services/Mechanicalcad';
 
 
