@@ -7,7 +7,7 @@ const styles = `
   * { box-sizing: border-box; margin: 0; padding: 0; }
   .fw-page { font-family: 'DM Sans', sans-serif; background: #ffffff; color: #1a1a1a; overflow-x: hidden; }
   .cp-page, .pcb-page, .ed-page, .fw-page, .pd-page, .sr-page {
-  padding-top: 80px; /* Adjust this based on your Header's height */
+  padding-top: 85px; /* Adjust this based on your Header's height */
 }
 
   /* HERO */
