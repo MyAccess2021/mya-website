@@ -9,7 +9,7 @@ export default function ESDCompliance() {
   return (
     <div>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800&family=Syne:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800&family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
         :root {
           --orange: #f4531c;
@@ -26,25 +26,31 @@ export default function ESDCompliance() {
         }
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+        body { font-family: 'DM Sans', sans-serif; }
+
         /* ── HERO ── */
-        .esd-hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 90vh; }
+        .esd-hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 85vh;  margin-top: 3vh;}
         .esd-hero-left {
           background: var(--light); padding: 6rem 4% 6rem 7%;
           display: flex; flex-direction: column; justify-content: center;
           position: relative; overflow: hidden;
         }
+          
         .esd-hero-left::after {
           content: 'ESD';
           position: absolute; right: -30px; bottom: -20px;
-          font-family: 'Syne', sans-serif; font-size: 14rem; font-weight: 800;
+          font-family: 'Poppins', sans-serif; font-size: 14rem; font-weight: 900;
           color: rgba(244,83,28,0.05); pointer-events: none; line-height: 1; letter-spacing: -8px;
         }
         .esd-breadcrumb { display: flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--orange); margin-bottom: 2.5rem; }
         .esd-breadcrumb span { color: #aaa; }
         .esd-hero-tag { display: inline-flex; align-items: center; gap: 0.5rem; background: #fff; border: 1px solid var(--border); color: var(--mid); font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 30px; margin-bottom: 1.8rem; width: fit-content; }
         .esd-tag-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
-        .esd-hero-title { font-family: 'Syne', sans-serif; font-size: clamp(2.5rem, 4vw, 3.8rem); font-weight: 800; line-height: 1.0; letter-spacing: -2px; margin-bottom: 1.5rem; }
+        
+        /* Changed to Poppins */
+        .esd-hero-title { font-family: 'Poppins', sans-serif; font-size: clamp(2.5rem, 4vw, 3.8rem); font-weight: 800; line-height: 1.0; letter-spacing: -2px; margin-bottom: 1.5rem; }
         .esd-hero-title em { font-style: normal; -webkit-text-stroke: 2px var(--black); color: transparent; }
+        
         .esd-hero-desc { font-size: 0.97rem; color: #666; line-height: 1.75; max-width: 420px; margin-bottom: 2.5rem; }
         .esd-pill-list { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 3rem; }
         .esd-pill { background: #fff; border: 1px solid var(--border); padding: 0.4rem 1rem; border-radius: 30px; font-size: 0.75rem; font-weight: 600; color: var(--mid); }
@@ -59,7 +65,10 @@ export default function ESDCompliance() {
         /* checklist preview */
         .esd-cp { border: 1.5px solid var(--border); border-radius: 14px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.06); }
         .esd-cp-header { background: var(--black); color: #fff; padding: 1.2rem 1.8rem; display: flex; align-items: center; justify-content: space-between; }
-        .esd-cp-header-title { font-family: 'Syne', sans-serif; font-size: 0.85rem; font-weight: 700; }
+        
+        /* Changed to Poppins */
+        .esd-cp-header-title { font-family: 'Poppins', sans-serif; font-size: 0.85rem; font-weight: 700; }
+        
         .esd-cp-badge { background: var(--orange); color: #fff; font-size: 0.65rem; font-weight: 700; padding: 0.25rem 0.7rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 1px; }
         .esd-cp-progress { background: #f0ede8; padding: 1.2rem 1.8rem; border-bottom: 1px solid var(--border); }
         .esd-cp-prog-label { display: flex; justify-content: space-between; font-size: 0.72rem; font-weight: 600; color: var(--muted); margin-bottom: 0.6rem; }
@@ -81,13 +90,19 @@ export default function ESDCompliance() {
         .esd-tag-ok { background: #dcfce7; color: #15803d; }
         .esd-cp-footer { padding: 1.2rem 1.8rem; background: #faf9f7; border-top: 1px solid var(--border); display: flex; gap: 1.5rem; }
         .esd-cp-stat { text-align: center; flex: 1; }
-        .esd-cp-stat-num { font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 800; }
+        
+        /* Changed to Poppins */
+        .esd-cp-stat-num { font-family: 'Poppins', sans-serif; font-size: 1.4rem; font-weight: 800; }
+        
         .esd-cp-stat-label { font-size: 0.65rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 0.2rem; }
 
         /* ── SECTION BASE ── */
-        .esd-section { padding: 6rem 7%; }
+        .esd-section { padding: 3rem 7%; }
         .esd-section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; }
-        .esd-section-title { font-family: 'Syne', sans-serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 800; letter-spacing: -1.5px; color: var(--black); line-height: 1.05; margin-bottom: 1.2rem; }
+        
+        /* Changed to Poppins */
+        .esd-section-title { font-family: 'Poppins', sans-serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 800; letter-spacing: -1.5px; color: var(--black); line-height: 1.05; margin-bottom: 1.2rem; }
+        
         .esd-section-sub { font-size: 1rem; color: var(--muted); line-height: 1.7; max-width: 580px; }
 
         /* ── STANDARDS ── */
@@ -97,15 +112,18 @@ export default function ESDCompliance() {
         .esd-std-card { background: #111; padding: 2.5rem 2rem; transition: 0.3s; position: relative; }
         .esd-std-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: transparent; transition: 0.3s; }
         .esd-std-card:hover::before { background: var(--orange); }
-        .esd-std-logo { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--orange); margin-bottom: 1rem; line-height: 1; }
+        
+        /* Changed to Poppins */
+        .esd-std-logo { font-family: 'Poppins', sans-serif; font-size: 2rem; font-weight: 800; color: var(--orange); margin-bottom: 1rem; line-height: 1; }
+        
         .esd-std-full { font-size: 0.72rem; font-weight: 600; color: #555; letter-spacing: 0.5px; margin-bottom: 1.5rem; text-transform: uppercase; }
         .esd-std-title { font-size: 1rem; font-weight: 700; color: #ddd; margin-bottom: 0.8rem; }
         .esd-std-desc { font-size: 0.82rem; color: #666; line-height: 1.6; }
 
         /* ── IMAGE ROW ── */
         .esd-img-row-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; height: 380px; }
-        .esd-img-row-grid .esd-placeholder { height: 100%; border-right: 4px solid #fff; }
-        .esd-img-row-grid .esd-placeholder:last-child { border-right: none; }
+        .esd-img-row-grid img { width: 100%; height: 100%; object-fit: cover; border-right: 4px solid #fff; }
+        .esd-img-row-grid img:last-child { border-right: none; }
 
         /* ── CATEGORIES ── */
         .esd-cat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 3.5rem; }
@@ -113,7 +131,10 @@ export default function ESDCompliance() {
         .esd-cat-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.07); transform: translateY(-3px); }
         .esd-cat-card-header { padding: 1.8rem 2rem 1.2rem; display: flex; align-items: flex-start; gap: 1.2rem; }
         .esd-cat-icon { width: 52px; height: 52px; border-radius: 10px; background: rgba(244,83,28,0.1); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
-        .esd-cat-title { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem; }
+        
+        /* Changed to Poppins */
+        .esd-cat-title { font-family: 'Poppins', sans-serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem; }
+        
         .esd-cat-count { font-size: 0.75rem; color: var(--muted); }
         .esd-cat-items { padding: 0 2rem 1.8rem; }
         .esd-cat-item { display: flex; align-items: center; gap: 0.8rem; padding: 0.55rem 0; border-top: 1px solid #f5f3f0; font-size: 0.83rem; color: var(--mid); }
@@ -121,26 +142,36 @@ export default function ESDCompliance() {
 
         /* ── PROCESS ── */
         .esd-process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-top: 3.5rem; }
+        .esd-process-img-wrap img { width: 100%; height: 480px; border-radius: 12px; object-fit: cover; }
         .esd-process-img-tag {
           position: absolute; top: 2rem; right: -2rem;
           background: var(--orange); color: #fff;
           padding: 1.2rem 1.5rem; border-radius: 10px; text-align: center;
         }
-        .esd-process-img-tag-num { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; line-height: 1; }
+        
+        /* Changed to Poppins */
+        .esd-process-img-tag-num { font-family: 'Poppins', sans-serif; font-size: 2rem; font-weight: 800; line-height: 1; }
+        
         .esd-process-img-tag small { font-size: 0.65rem; font-weight: 600; opacity: 0.8; text-transform: uppercase; letter-spacing: 1px; display: block; margin-top: 0.2rem; }
         .esd-process-step-item { display: grid; grid-template-columns: 3rem 1fr; gap: 1.2rem; padding: 1.8rem 0; border-bottom: 1px solid var(--border); }
         .esd-process-step-item:last-child { border-bottom: none; }
-        .esd-ps-num { font-family: 'Syne', sans-serif; font-size: 0.8rem; font-weight: 800; color: var(--orange); padding-top: 0.15rem; }
-        .esd-ps-title { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.4rem; }
+        
+        /* Changed to Poppins */
+        .esd-ps-num { font-family: 'Poppins', sans-serif; font-size: 0.8rem; font-weight: 800; color: var(--orange); padding-top: 0.15rem; }
+        .esd-ps-title { font-family: 'Poppins', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.4rem; }
+        
         .esd-ps-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
 
         /* ── REPORT PREVIEW ── */
         .esd-report-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 2rem; }
         .esd-report-doc { border: 1.5px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.06); }
         .esd-rdoc-header { background: var(--orange); color: #fff; padding: 1.2rem 1.8rem; display: flex; align-items: center; justify-content: space-between; }
-        .esd-rdoc-title { font-family: 'Syne', sans-serif; font-size: 0.85rem; font-weight: 800; }
+        
+        /* Changed to Poppins */
+        .esd-rdoc-title { font-family: 'Poppins', sans-serif; font-size: 0.85rem; font-weight: 800; }
+        
         .esd-rdoc-date { font-size: 0.7rem; opacity: 0.8; }
-        .esd-rdoc-body { padding: 1.5rem 1.8rem; }
+        .esd-rdoc-body { padding: 1.5rem 1.8rem; background: #fff; }
         .esd-rdoc-row { display: flex; justify-content: space-between; align-items: center; padding: 0.65rem 0; border-bottom: 1px solid #f3f1ee; font-size: 0.82rem; }
         .esd-rdoc-row:last-child { border-bottom: none; }
         .esd-rdoc-label { color: var(--mid); font-weight: 500; }
@@ -155,25 +186,25 @@ export default function ESDCompliance() {
         .esd-rf-text { font-size: 0.85rem; color: var(--mid); line-height: 1.5; }
 
         /* ── CTA ── */
-        .esd-cta { background: var(--black); color: #fff; text-align: center; padding: 7rem 7%; position: relative; overflow: hidden; }
+        .esd-cta { background: var(--black); color: #fff; text-align: center; padding: 7rem 7%; position: relative; overflow: hidden;margin-bottom: 0px; }
         .esd-cta::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(244,83,28,0.12) 0%, transparent 70%); pointer-events: none; }
         .esd-cta .esd-section-title { color: #fff; margin: 0 auto 1.5rem; max-width: 700px; }
         .esd-cta .esd-section-sub { margin: 0 auto 3rem; color: #666; }
         .esd-cta-buttons { display: flex; gap: 1rem; justify-content: center; }
         .esd-btn-ghost { background: transparent; color: #ccc; padding: 0.9rem 2rem; border-radius: 7px; font-size: 0.8rem; font-weight: 600; border: 1px solid #333; cursor: pointer; text-transform: uppercase; }
 
-        /* ── PLACEHOLDER ── */
-        .esd-placeholder { background: linear-gradient(135deg, #e8e4de 0%, #d4cfc8 100%); display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 0.78rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
-
         /* ── RESPONSIVE ── */
         @media (max-width: 900px) {
-          .esd-hero { grid-template-columns: 1fr; }
-          .esd-hero-right { padding: 3rem 5%; }
+  .esd-hero { 
+    grid-template-columns: 1fr; 
+    margin-top: -1vh; /* Tightened gap from header */
+    min-height: auto; 
+  }          .esd-hero-right { padding: 3rem 5%; }
           .esd-section { padding: 4rem 5%; }
           .esd-standards { padding: 4rem 5%; }
           .esd-standards-grid { grid-template-columns: 1fr; }
           .esd-img-row-grid { grid-template-columns: 1fr; height: auto; }
-          .esd-img-row-grid .esd-placeholder { height: 200px; border-right: none; border-bottom: 4px solid #fff; }
+          .esd-img-row-grid img { height: 250px; border-right: none; border-bottom: 4px solid #fff; }
           .esd-cat-grid { grid-template-columns: 1fr; }
           .esd-process-grid { grid-template-columns: 1fr; }
           .esd-process-img-tag { right: 1rem; }
@@ -262,7 +293,7 @@ export default function ESDCompliance() {
       {/* STANDARDS */}
       <section className="esd-standards">
         <p className="esd-section-label">Compliance Standards</p>
-        <h2 className="esd-section-title" style={{ color: '#fff' }}>We Audit Against Global ESD Standards</h2>
+        <h2 className="esd-section-title">We Audit Against Global ESD Standards</h2>
         <div className="esd-standards-grid">
           {[
             { logo: 'IEC\n61340', full: 'International Electrotechnical Commission', title: 'Electrostatics — Protection of Electronic Devices', desc: 'The global benchmark for ESD control programs. Parts 4 and 5 cover test methods, EPA requirements, and packaging specifications.' },
@@ -281,9 +312,9 @@ export default function ESDCompliance() {
 
       {/* IMAGE ROW */}
       <div className="esd-img-row-grid">
-        <div className="esd-placeholder">[ ESD Workstation Setup ]</div>
-        <div className="esd-placeholder">[ Wrist Strap Testing ]</div>
-        <div className="esd-placeholder">[ EPA Signage & Floor Markings ]</div>
+        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800" alt="Workstation Setup" />
+        <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=800&q=80" alt="ESD Testing" />
+        <img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&q=80&w=800" alt="Clean Room Facility" />
       </div>
 
       {/* CATEGORIES */}
@@ -319,8 +350,8 @@ export default function ESDCompliance() {
       {/* PROCESS */}
       <section className="esd-section" style={{ background: '#fff' }}>
         <div className="esd-process-grid">
-          <div style={{ position: 'relative' }}>
-            <div className="esd-placeholder" style={{ height: '480px', borderRadius: '12px' }}>[ ESD Audit in Progress ]</div>
+          <div style={{ position: 'relative' }} className="esd-process-img-wrap">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000" alt="Audit in Progress" />
             <div className="esd-process-img-tag">
               <div className="esd-process-img-tag-num">50+</div>
               <small>Check Points</small>

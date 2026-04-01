@@ -11,7 +11,7 @@ const translations = {
     enter_email: "Enter your email address for updates",
     email_placeholder: "Business email", copyright: "© MYACCESS 2021",
     privacy: "Privacy Policy", terms: "Terms of Service", faq: "FAQ",
-    footer_3dprinters: "3D Farms", footer_postprocess: "Projects",
+    footer_3dprinters: "3D Farm", footer_postprocess: "Projects",
     footer_materials: "Services", footer_software: "Software",
     footer_industries: "Products", footer_learn: "Learn",
     footer_company: "Company", footer_support: "Support", footer_sales: "Sales",

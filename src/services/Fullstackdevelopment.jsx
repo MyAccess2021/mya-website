@@ -1,16 +1,73 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../components/header";
 import Footer from "../components/Footer";
 
 export default function FullstackDevelopment() {
+  // 1. State to track the active tab
+  const [activeTab, setActiveTab] = useState("Frontend");
+
+  // 2. Data object for all categories
+  const techStackData = {
+    "Frontend": [
+      { e: '⚛️', n: 'React', r: 'UI Framework' },
+      { e: '▲', n: 'Next.js', r: 'SSR / SSG' },
+      { e: '🔷', n: 'TypeScript', r: 'Type Safety' },
+      { e: '💨', n: 'Tailwind', r: 'Styling' },
+      { e: '🐻', n: 'Zustand', r: 'State Mgmt' },
+      { e: '📈', n: 'Recharts', r: 'Data Viz' },
+      { e: '🎭', n: 'Cypress', r: 'E2E Testing' },
+      { e: '📦', n: 'Vite', r: 'Build Tool' },
+    ],
+    "Backend": [
+      { e: '🟢', n: 'Node.js', r: 'Runtime' },
+      { e: '🚀', n: 'Express', r: 'API Framework' },
+      { e: '🐍', n: 'Python', r: 'Scripting/AI' },
+      { e: '⚡', n: 'FastAPI', r: 'High Perf API' },
+      { e: '🛡️', n: 'NestJS', r: 'Architecture' },
+      { e: '🔌', n: 'Socket.io', r: 'Real-time' },
+      { e: '💎', n: 'Prisma', r: 'ORM' },
+      { e: '🐹', n: 'Go', r: 'Microservices' },
+    ],
+    "Cloud & DevOps": [
+      { e: '☁️', n: 'AWS', r: 'Infrastructure' },
+      { e: '🐳', n: 'Docker', r: 'Containerization' },
+      { e: '☸️', n: 'Kubernetes', r: 'Orchestration' },
+      { e: '🔄', n: 'CI/CD', r: 'Automation' },
+      { e: '🛠️', n: 'Terraform', r: 'IaC' },
+      { e: '🌍', n: 'Nginx', r: 'Web Server' },
+      { e: '📊', n: 'Prometheus', r: 'Monitoring' },
+      { e: '🔐', n: 'Vault', r: 'Secrets' },
+    ],
+    "IoT & Embedded": [
+      { e: '📡', n: 'MQTT', r: 'Messaging' },
+      { e: '📟', n: 'ESP32', r: 'Hardware' },
+      { e: '🔗', n: 'Modbus', r: 'Protocol' },
+      { e: '📶', n: 'BLE', r: 'Connectivity' },
+      { e: '🤖', n: 'ROS', r: 'Robotics' },
+      { e: '🍓', n: 'Raspberry Pi', r: 'Gateway' },
+      { e: '⚙️', n: 'C/C++', r: 'Firmware' },
+      { e: '🕒', n: 'FreeRTOS', r: 'Real-time OS' },
+    ],
+    "Databases": [
+      { e: '🐘', n: 'PostgreSQL', r: 'Relational' },
+      { e: '🍃', n: 'MongoDB', r: 'NoSQL' },
+      { e: '🔥', n: 'Redis', r: 'Caching' },
+      { e: '⏱️', n: 'InfluxDB', r: 'Time Series' },
+      { e: '🔍', n: 'Elastic', r: 'Search' },
+      { e: '❄️', n: 'Snowflake', r: 'Warehousing' },
+      { e: '📊', n: 'MySQL', r: 'Relational' },
+      { e: '⚡', n: 'DynamoDB', r: 'Serverless DB' },
+    ]
+  };
+
   return (
     <div>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap');
-        .fsd-root { font-family: 'DM Sans', sans-serif; background: #fff; color: #111; overflow-x: hidden; padding-top: 5.2rem; }
+        .fsd-root { font-family: 'DM Sans', sans-serif; background: #fff; color: #111; overflow-x: hidden; padding-top: 4.0rem; }
 
         /* HERO */
-        .fsd-hero { background: #0d1117; display: grid; grid-template-columns: 1fr 1fr; min-height: 88vh; position: relative; overflow: hidden; }
+        .fsd-hero { background: #0d1117; display: grid; grid-template-columns: 1fr 1fr; min-height: 85vh; position: relative; overflow: hidden; }
         .fsd-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 15% 50%, rgba(244,83,28,0.07) 0%, transparent 55%), radial-gradient(ellipse at 80% 20%, rgba(37,99,235,0.05) 0%, transparent 50%); pointer-events: none; }
         .fsd-hero-left { padding: 6rem 4rem 6rem 6%; display: flex; flex-direction: column; justify-content: center; z-index: 1; }
         .fsd-pill { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1.8rem; width: fit-content; }
@@ -55,7 +112,7 @@ export default function FullstackDevelopment() {
         .fsd-crumb-cur { color: #111; font-weight: 600; }
 
         /* SHARED */
-        .fsd-section { padding: 5rem 6%; }
+        .fsd-section { padding: 2.5rem 6%; }
         .fsd-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #f4531c; margin-bottom: 0.6rem; }
         .fsd-title { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800; color: #111; letter-spacing: -1.5px; line-height: 1.1; }
         .fsd-title span { color: #888; font-weight: 400; }
@@ -81,7 +138,7 @@ export default function FullstackDevelopment() {
         .fsd-stab { padding: 0.9rem 1.1rem; border-radius: 8px; cursor: pointer; border: 1px solid transparent; transition: all 0.2s; display: flex; align-items: center; justify-content: space-between; }
         .fsd-stab:hover { background: #fff; border-color: #e8e8e8; }
         .fsd-stab.active { background: #fff; border-color: #e8e8e8; box-shadow: 0 3px 10px rgba(0,0,0,0.05); }
-        .fsd-stab-label { font-size: 0.82rem; font-weight: 700; }
+        .fsd-stab-label { font-size: 0.82rem; font-weight: 700; color: #111; }
         .fsd-stab.active .fsd-stab-label { color: #f4531c; }
         .fsd-stab-count { font-size: 0.65rem; background: #f5f5f5; color: #888; padding: 0.15rem 0.45rem; border-radius: 3px; font-weight: 600; }
         .fsd-tech-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
@@ -180,7 +237,7 @@ export default function FullstackDevelopment() {
         @media (max-width: 1100px) {
           .fsd-svc-grid { grid-template-columns: repeat(2, 1fr); }
           .fsd-stack-layout { grid-template-columns: 1fr; }
-          .fsd-stack-nav { flex-direction: row; overflow-x: auto; }
+          .fsd-stack-nav { flex-direction: row; overflow-x: auto; padding-bottom: 0.5rem; }
           .fsd-wp-grid { grid-template-columns: repeat(2, 1fr); }
           .fsd-why-layout { grid-template-columns: 1fr; gap: 3rem; }
           .fsd-price-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
@@ -256,13 +313,6 @@ export default function FullstackDevelopment() {
           </div>
         </div>
 
-        {/* BREADCRUMB */}
-        <div className="fsd-crumb">
-          <a href="#">Home</a><span className="fsd-crumb-sep">/</span>
-          <a href="#">Services</a><span className="fsd-crumb-sep">/</span>
-          <span className="fsd-crumb-cur">Fullstack Development</span>
-        </div>
-
         {/* SERVICES */}
         <section className="fsd-section fsd-svc">
           <div className="fsd-label">What We Build</div>
@@ -294,24 +344,20 @@ export default function FullstackDevelopment() {
           <p className="fsd-desc">Battle-tested technologies chosen for performance, maintainability, and long-term support.</p>
           <div className="fsd-stack-layout">
             <div className="fsd-stack-nav">
-              {['Frontend','Backend','Cloud & DevOps','IoT & Embedded','Databases'].map((n,i)=>(
-                <div className={`fsd-stab${i===0?' active':''}`} key={i}>
-                  <span className="fsd-stab-label">{n}</span>
+              {Object.keys(techStackData).map((category, i) => (
+                <div 
+                  className={`fsd-stab ${activeTab === category ? 'active' : ''}`} 
+                  key={i}
+                  onClick={() => setActiveTab(category)}
+                >
+                  <span className="fsd-stab-label">{category}</span>
+                  <span className="fsd-stab-count">{techStackData[category].length}</span>
                 </div>
               ))}
             </div>
             <div>
               <div className="fsd-tech-grid">
-                {[
-                  { e:'⚛️', n:'React', r:'UI Framework' },
-                  { e:'▲', n:'Next.js', r:'SSR / SSG' },
-                  { e:'🔷', n:'TypeScript', r:'Type Safety' },
-                  { e:'💨', n:'Tailwind', r:'Styling' },
-                  { e:'🐻', n:'Zustand', r:'State Mgmt' },
-                  { e:'📈', n:'Recharts', r:'Data Viz' },
-                  { e:'🎭', n:'Cypress', r:'E2E Testing' },
-                  { e:'📦', n:'Vite', r:'Build Tool' },
-                ].map((t, i) => (
+                {techStackData[activeTab].map((t, i) => (
                   <div className="fsd-tech-card" key={i}>
                     <span className="fsd-tech-emoji">{t.e}</span>
                     <div className="fsd-tech-name">{t.n}</div>
@@ -383,7 +429,6 @@ export default function FullstackDevelopment() {
                 { icon:'🔩', title:'Hardware-Software Integration Experts', desc:"Our devs understand embedded systems, serial protocols, and hardware constraints — no 'lost in translation' between firmware and app teams." },
                 { icon:'🏭', title:'Industrial Domain Knowledge', desc:'We\'ve built for EMS, robotics, agriculture, and medical industries. We understand OEE, SCADA, Modbus, and industrial connectivity challenges.' },
                 { icon:'🔒', title:'Security-First Development', desc:'TLS everywhere, OWASP compliance, secrets management, and regular security audits. Security is foundational, not bolted on.' },
-                { icon:'📝', title:'Full Ownership Transfer', desc:'Clean code, complete documentation, and full IP transfer. You own everything — source code, CI/CD pipelines, and all documentation.' },
                 { icon:'🔄', title:'Ongoing Maintenance Options', desc:'Retainer plans for bug fixes, feature additions, performance optimization, and dependency updates. Long-term partnership.' },
               ].map((w, i) => (
                 <div className="fsd-why-point" key={i}>

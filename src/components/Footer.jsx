@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import { useLang } from "../context/LanguageContext";
 
 const footerLinks = [
-  { titleKey: "footer_3dprinters", links: ["Form 4", "Form 4B", "Form 4L", "Form 4BL", "Form Auto", "Fuse Series", "Resin 3D Printers", "Industrial 3D Printers", "Compare 3D Printers"] },
-  { titleKey: "footer_postprocess", links: ["Submit Projects", "Latest Projects", "Ongoing Projects", "completed Projects"] },
-  { titleKey: "footer_materials", links: ["Soldering & Rework", "PCB Design", "Embedded Development", "OpenCPU / OpenWRT Firmware", "PCB Fabrication (Local/Global)", "EMS Assembly", "Testing & Debugging", "Mechanical CAD", "Patent Filing Support"] },
-  { titleKey: "footer_software", links: ["Fullstack Development (Web + Mobile)", "CI/CD & DevOps", "Fleet Control","Factory Solutions"] },
-  { titleKey: "footer_industries", links: ["My Safe Shutter","Kiosk","ERP Modular"] },
-  { titleKey: "footer_learn", links: ["Applications", "Blog", "Resources", "Events", ] },
-  { titleKey: "footer_company", links: ["About", "Careers", "Press", "Community & Impact", "Contact"] },
+  { titleKey: "footer_3dprinters", links: [ "Pellets","Recycling",  "Filaments","Shreddering", "3D Printed Molds",  "FDM and SLA Prints","Plastic Injection Molds",] },
+  { titleKey: "footer_postprocess", links: [ "Latest Projects", "Submit Projects","Ongoing Projects", "completed Projects"] },
+  { titleKey: "footer_materials", links: ["PCB Design", "EMS Assembly","Mechanical CAD", "Soldering & Rework","Testing & Debugging",   "Patent Filing Support","Embedded Development","PCB Fabrication (Local/Global)", "OpenCPU / OpenWRT Firmware",  ] },
+  { titleKey: "footer_software", links: [ "Fleet Control","CI/CD & DevOps","Factory Solutions","Fullstack Development (Web + Mobile)",] },
+  { titleKey: "footer_industries", links: ["Kiosk","ERP Modular","My Safe Shutter"] },
+  { titleKey: "footer_learn", links: [ "Blog",  "Events", "Resources","Applications" ] },
+  { titleKey: "footer_company", links: ["Press","About", "Careers",  "Contact", "Community & Impact"] },
   { titleKey: "footer_support", links: ["Support Resources", "Contact Support", "Accessibility"] },
   { titleKey: "footer_sales", links: ["Contact Sales","Find a Reseller"] },
 ];
@@ -43,7 +43,7 @@ export default function Footer() {
         .email-input-wrap button { background: transparent; border: none; color: #fff; cursor: pointer; font-size: 18px; }
         .social-row { display: flex; gap: 10px; margin-top: 25px; }
         .social-box { width: 32px; height: 32px; background: #fff; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #000; text-decoration: none; font-weight: 800; font-size: 14px; }
-        .footer-bottom { padding-top: 40px; border-top: 1px solid #1a1a1a; color: #666; font-size: 11px; display: flex; flex-direction: row; justify-content: space-between; align-items: center; }
+        .footer-bottom { padding-top: 40px; border-top: 1px solid #1a1a1a; color: #efe8e8; font-size: 11px; display: flex; flex-direction: row; justify-content: space-between; align-items: center; }
         .legal-links { display: flex; gap: 15px; flex-wrap: wrap; }
         .legal-links a { color: #666; text-decoration: none; }
         .legal-links a:hover { color: #aaa; }
@@ -126,23 +126,32 @@ export default function Footer() {
         <Link to="/factory-solutions" style={{ color: '#888', textDecoration: 'none' }}>{link}</Link>
       )
       : link === "Soldering & Rework" ? (
-        <Link to="/soldering-rework" style={{ color: '#888', textDecoration: 'none' }}>{link}</Link>
+        <Link to="/services/soldering-rework" style={{ color: '#888', textDecoration: 'none' }}>{link}</Link>
       )
       : link === "PCB Design" ? (
-        <Link to="/pcb-design" style={{ color: '#888', textDecoration: 'none' }}>{link}</Link>
+        <Link to="/services/pcb-design" style={{ color: '#888', textDecoration: 'none' }}>{link}</Link>
       ) 
        : link === "Embedded Development" ? (
-        <Link to="/embedded-development" style={{ color: '#888', textDecoration: 'none' }}>{link}</Link>
+        <Link to="/services/embedded-development" style={{ color: '#888', textDecoration: 'none' }}>{link}</Link>
       ) 
        : link === "OpenCPU / OpenWRT Firmware" ? (
-        <Link to="/open-cpu-openwrt" style={{ color: '#888', textDecoration: 'none' }}>{link}</Link>
+        <Link to="/services/open-cpu-openwrt" style={{ color: '#888', textDecoration: 'none' }}>{link}</Link>
       ) 
        : link === "PCB Fabrication (Local/Global)" ? (
-        <Link to="/pcb-fabrication" style={{ color: '#888', textDecoration: 'none' }}>{link}</Link>
+        <Link to="/services/pcb-fabrication" style={{ color: '#888', textDecoration: 'none' }}>{link}</Link>
       ) 
        : link === "PCB Design" ? (
-        <Link to="/pcb-design" style={{ color: '#888', textDecoration: 'none' }}>{link}</Link>
-      )  : link === "My Safe Shutter" ? (
+        <Link to="/services/pcb-design" style={{ color: '#888', textDecoration: 'none' }}>{link}</Link>
+      )
+      : link === "Mechanical CAD" ? (
+        <Link to="/services/mechanical-cad" style={{ color: '#888', textDecoration: 'none' }}>{link}</Link>
+      ) 
+       : link === "Testing & Debugging" ? (
+        <Link to="/services/testing-debugging" style={{ color: '#888', textDecoration: 'none' }}>{link}</Link>
+      )  : link === "EMS Assembly" ? (
+        <Link to="/services/ems-assembly" style={{ color: '#888', textDecoration: 'none' }}>{link}</Link>
+      ) 
+       : link === "My Safe Shutter" ? (
         /* External Link for My Safe Shutter */
         <a href="https://mysafeshutter.in/" target="_blank" rel="noopener noreferrer" style={{ color: '#888', textDecoration: 'none' }}>
           {link}
@@ -161,9 +170,9 @@ export default function Footer() {
       <div className="footer-bottom">
         <div className="copyright">{t("copyright")}</div>
         <div className="legal-links">
-          <Link to="/legal" state={{ tab: "privacy" }} style={{ color: '#666', textDecoration: 'none' }}>{t("privacy")}</Link>
-  <Link to="/legal" state={{ tab: "terms" }} style={{ color: '#666', textDecoration: 'none' }}>{t("terms")}</Link>
-  <Link to="/legal" state={{ tab: "faq" }} style={{ color: '#666', textDecoration: 'none' }}>{t("faq")}</Link>
+          <Link to="/legal" state={{ tab: "privacy" }} style={{ color: '#f3f3f3', textDecoration: 'none' }}>{t("privacy")}</Link>
+  <Link to="/legal" state={{ tab: "terms" }} style={{ color: '#ede4e4', textDecoration: 'none' }}>{t("terms")}</Link>
+  <Link to="/legal" state={{ tab: "faq" }} style={{ color: '#ede7e7', textDecoration: 'none' }}>{t("faq")}</Link>
         </div>
       </div>
     </footer>

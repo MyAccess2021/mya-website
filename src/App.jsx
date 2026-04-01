@@ -22,6 +22,11 @@ import FullstackDevelopment from './services/Fullstackdevelopment';
 import TestingDebugging from './services/Testingdebugging';
 import ESDCompliance from './services/Esdcompliance';
 import MechanicalCAD from './services/Mechanicalcad';
+import EMSAssembly from './services/EmsAssembly';
+import Moldpipeline from './services/Moldpipeline';
+import CloudService from './services/Cloudservice';
+import Cicd from './services/cicd';
+import PatentPage from './services/patentfilling';
 
 
 
@@ -42,18 +47,23 @@ function App() {
             <Route path="/careers" element={<Careers />} />
             <Route path="/factory-solutions" element={<FactorySolutions />} />
             <Route path="/legal" element={<TermsAndConditions />} />
-            <Route path="/open-cpu-openwrt" element={<OpenCPUOpenWRT />} />
-            <Route path="/pcb-fabrication" element={<PCBFabrication />} />
-            <Route path="/component-procurement" element={<ComponentProcurement />} />
-            <Route path="/soldering-rework" element={<SolderingRework />} />
-            <Route path="/pcb-design" element={<PCBDesign />} />
-            <Route path="/embedded-development" element={<EmbeddedDevelopment />} />
+            <Route path="/services/open-cpu-openwrt" element={<OpenCPUOpenWRT />} />
+            <Route path="/services/pcb-fabrication" element={<PCBFabrication />} />
+            <Route path="/services/component-procurement" element={<ComponentProcurement />} />
+            <Route path="/services/soldering-rework" element={<SolderingRework />} />
+            <Route path="/services/pcb-design" element={<PCBDesign />} />
+            <Route path="/services/embedded-development" element={<EmbeddedDevelopment />} />
             <Route path="/services/3d-printing" element={<ThreeDPrinting />} />
             <Route path="/services/injection-molding" element={<PlasticInjectionMolding />} />
             <Route path="/services/fullstack" element={<FullstackDevelopment />} />
             <Route path="/services/testing-debugging" element={<TestingDebugging />} />
             <Route path="/services/esd-compliance" element={<ESDCompliance />} />
             <Route path="/services/mechanical-cad" element={<MechanicalCAD />} />
+            <Route path="/services/ems-assembly" element={<EMSAssembly />} />
+            <Route path="/services/mold-pipeline" element={<Moldpipeline />} />
+            <Route path="/services/cloud-service" element={<CloudService />} />
+            <Route path="/services/cicd" element={<Cicd />} />
+            <Route path="/services/patent-filing" element={<PatentPage />} />
           </Routes>
         </div>
       </Router>

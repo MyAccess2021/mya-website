@@ -7,7 +7,9 @@ export default function ThreeDPrinting() {
     <div>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&display=swap');
-        .tdp-root { font-family: 'DM Sans', sans-serif; background: #fff; color: #111; overflow-x: hidden; padding-top: 5.2rem; }
+        
+        /* Updated padding-top to 120px (80px Header + 40px Gap) */
+        .tdp-root { font-family: 'DM Sans', sans-serif; background: #fff; color: #111; overflow-x: hidden; padding-top: 6vh; }
 
         /* HERO */
         .tdp-hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 88vh; }
@@ -33,13 +35,6 @@ export default function ThreeDPrinting() {
         .tdp-hero-card-icon { width: 40px; height: 40px; background: #f4531c; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
         .tdp-hero-card strong { font-size: 0.82rem; font-weight: 700; display: block; color: #111; }
         .tdp-hero-card span { font-size: 0.7rem; color: #666; }
-
-        /* BREADCRUMB */
-        .tdp-crumb { padding: 1.2rem 6%; display: flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; color: #888; border-bottom: 1px solid #eee; }
-        .tdp-crumb a { color: #888; text-decoration: none; }
-        .tdp-crumb a:hover { color: #f4531c; }
-        .tdp-crumb-sep { color: #ddd; }
-        .tdp-crumb-cur { color: #111; font-weight: 600; }
 
         /* SHARED SECTION STYLES */
         .tdp-section { padding: 5rem 6%; }
@@ -147,41 +142,81 @@ export default function ThreeDPrinting() {
         .tdp-btn-outline-white { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.5); padding: 0.9rem 2rem; border-radius: 7px; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; cursor: pointer; transition: all 0.25s; }
         .tdp-btn-outline-white:hover { border-color: #fff; }
 
-        /* RESPONSIVE */
-        @media (max-width: 1100px) {
-          .tdp-steps { grid-template-columns: repeat(3, 1fr); }
-          .tdp-mat-grid { grid-template-columns: repeat(3, 1fr); }
-        }
+     /* --- UPDATED MOBILE RESPONSIVE --- */
         @media (max-width: 900px) {
+          /* General Spacing */
+          .tdp-section { padding: 3rem 1.2rem; }
           .tdp-hero { grid-template-columns: 1fr; min-height: auto; }
-          .tdp-hero-right { height: 320px; }
-          .tdp-overview-grid, .tdp-specs-layout { grid-template-columns: 1fr; }
-          .tdp-overview-grid { gap: 3rem; }
-          .tdp-img-accent { display: none; }
-          .tdp-cap-grid { grid-template-columns: 1fr 1fr; }
-          .tdp-price-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
-          .tdp-faq-grid { grid-template-columns: 1fr; }
-          .tdp-steps { grid-template-columns: 1fr 1fr; }
+          .tdp-hero-right { height: 300px; }
+          .tdp-hero-left { padding: 3rem 1.2rem; }
+          .tdp-overview-grid { grid-template-columns: 1fr; gap: 3rem; }
+
+          /* Materials Library: Force 2 Columns & Left Align */
+          .tdp-mat-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.8rem;
+          }
+          .tdp-mat-card {
+            text-align: left; /* Aligns text to left */
+            padding: 1rem;
+          }
+          .tdp-mat-swatch {
+            margin: 0 0 0.8rem 0; /* Moves icon/swatch to the left */
+          }
+
+          /* Machine Specifications Table Fix */
+          .tdp-specs-layout {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+          }
+          .tdp-table-container {
+            width: 100%;
+            overflow-x: auto; /* Enables horizontal scroll for the table */
+            -webkit-overflow-scrolling: touch;
+          }
+          .tdp-table {
+            display: table;
+            min-width: 500px; /* Prevents columns from squishing too much */
+          }
+          .tdp-table th, .tdp-table td {
+            padding: 0.7rem;
+            font-size: 0.75rem;
+          }
+
+          /* Technologies/Capabilities: 2 Columns */
+          .tdp-cap-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.8rem;
+          }
+
+          /* Steps: 2 Columns */
+          .tdp-steps {
+            grid-template-columns: repeat(2, 1fr);
+          }
+
+          /* Pricing: Single Column for better readability */
+          .tdp-price-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+          }
+
+          /* FAQ: Single Column */
+          .tdp-faq-grid {
+            grid-template-columns: 1fr;
+          }
         }
-        @media (max-width: 600px) {
-          .tdp-section { padding: 3.5rem 5%; }
-          .tdp-hero-left { padding: 4rem 5%; }
-          .tdp-cap-grid { grid-template-columns: 1fr; }
-          .tdp-mat-grid { grid-template-columns: repeat(2, 1fr); }
-          .tdp-steps { grid-template-columns: 1fr; }
+
+        /* Extra fix for very small devices */
+        @media (max-width: 480px) {
+          .tdp-cap-grid, .tdp-steps {
+            grid-template-columns: 1fr;
+          }
         }
       `}</style>
 
       <Header />
 
       <div className="tdp-root">
-
-        {/* BREADCRUMB */}
-        <div className="tdp-crumb">
-          <a href="#">Home</a><span className="tdp-crumb-sep">/</span>
-          <a href="#">Services</a><span className="tdp-crumb-sep">/</span>
-          <span className="tdp-crumb-cur">3D Printing</span>
-        </div>
 
         {/* HERO */}
         <div className="tdp-hero">
@@ -200,14 +235,7 @@ export default function ThreeDPrinting() {
             </div>
           </div>
           <div className="tdp-hero-right">
-            <img src="https://images.unsplash.com/photo-1631733436704-1a5ead0a5f4f?w=900&q=80" alt="3D Printing" />
-            <div className="tdp-hero-card">
-              <div className="tdp-hero-card-icon">🖨️</div>
-              <div>
-                <strong>Industrial FDM / SLA / SLS</strong>
-                <span>Precision manufacturing for every stage</span>
-              </div>
-            </div>
+<img src="/assets/home/bamboo lab.webp" alt="3D Printing Station" />          
           </div>
         </div>
 
@@ -217,8 +245,8 @@ export default function ThreeDPrinting() {
           <h2 className="tdp-title">Professional 3D Printing <span>for Every Scale</span></h2>
           <div className="tdp-overview-grid">
             <div className="tdp-img-stack">
-              <img className="tdp-img-main" src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=700&q=80" alt="3D printer" />
-              <img className="tdp-img-accent" src="https://images.unsplash.com/photo-1609081144289-eaab9a3e7e1d?w=400&q=80" alt="3D printed part" />
+              <img className="tdp-img-main" src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1470" alt="3D printer operation" />
+              <img className="tdp-img-accent" src="https://images.unsplash.com/photo-1563293789-d6ec95b49088?q=80&w=1470" alt="Detailed 3D printed part" />
             </div>
             <div className="tdp-overview-content">
               <h3>From Concept to Component</h3>
@@ -309,30 +337,38 @@ export default function ThreeDPrinting() {
           </div>
         </section>
 
-        {/* SPECS TABLE */}
-        <section className="tdp-section tdp-specs">
-          <div className="tdp-label">Technical Details</div>
-          <h2 className="tdp-title">Machine <span>Specifications</span></h2>
-          <div className="tdp-specs-layout">
-            <table className="tdp-table">
-              <thead><tr><th>Parameter</th><th>FDM</th><th>SLA</th><th>SLS</th></tr></thead>
-              <tbody>
-                {[
-                  ['Layer Height','0.1–0.4mm','0.025–0.1mm','0.1mm'],
-                  ['Build Volume','600×600×600','145×145×175','350×350×380'],
-                  ['Tolerance','±0.2mm','±0.05mm','±0.3mm'],
-                  ['Surface Finish','Moderate','Excellent','Good'],
-                  ['Supports Required','Yes','Yes','No'],
-                  ['Lead Time','24–48 hrs','24–72 hrs','3–5 days'],
-                  ['Min Wall Thickness','1.2mm','0.6mm','0.7mm'],
-                ].map((row, i) => (
-                  <tr key={i}>{row.map((cell, j) => <td key={j}>{cell}</td>)}</tr>
-                ))}
-              </tbody>
-            </table>
-            <img className="tdp-specs-img" src="https://images.unsplash.com/photo-1563293789-d6ec95b49088?w=700&q=80" alt="Specifications" />
-          </div>
-        </section>
+      {/* SPECS TABLE SECTION */}
+<section className="tdp-section tdp-specs">
+  <div className="tdp-label">Technical Details</div>
+  <h2 className="tdp-title">Machine <span>Specifications</span></h2>
+  <div className="tdp-specs-layout">
+    
+    {/* ADD THIS WRAPPER DIV HERE */}
+    <div className="tdp-table-container">
+      <table className="tdp-table">
+        <thead>
+          <tr><th>Parameter</th><th>FDM</th><th>SLA</th><th>SLS</th></tr>
+        </thead>
+        <tbody>
+          {[
+            ['Layer Height','0.1–0.4mm','0.025–0.1mm','0.1mm'],
+            ['Build Volume','600×600×600','145×145×175','350×350×380'],
+            ['Tolerance','±0.2mm','±0.05mm','±0.3mm'],
+            ['Surface Finish','Moderate','Excellent','Good'],
+            ['Supports Required','Yes','Yes','No'],
+            ['Lead Time','24–48 hrs','24–72 hrs','3–5 days'],
+            ['Min Wall Thickness','1.2mm','0.6mm','0.7mm'],
+          ].map((row, i) => (
+            <tr key={i}>{row.map((cell, j) => <td key={j}>{cell}</td>)}</tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    {/* END OF WRAPPER DIV */}
+
+    <img className="tdp-specs-img" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1470" alt="Quality control" />
+  </div>
+</section>
 
         {/* PRICING */}
         <section className="tdp-section tdp-pricing">

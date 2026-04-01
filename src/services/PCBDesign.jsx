@@ -7,12 +7,21 @@ const styles = `
   * { box-sizing: border-box; margin: 0; padding: 0; }
   .pd-page { font-family: 'DM Sans', sans-serif; background: #ffffff; color: #111; overflow-x: hidden; }
   .cp-page, .pcb-page, .ed-page, .fw-page, .pd-page, .sr-page {
-  padding-top: 80px; /* Adjust this based on your Header's height */
+  padding-top: 40px; /* Adjust this based on your Header's height */
 }
 
   /* HERO */
-  .pd-hero { position: relative; width: 95%; margin: 1.5rem auto 0; border-radius: 1.25rem; overflow: hidden; min-height: 580px; display: flex; align-items: center; background: #0a0a0a; }
-  .pd-hero-bg { position: absolute; inset: 0; }
+/* HERO */
+.pd-hero { 
+  position: relative; 
+  width: 100%;              /* Stretches to full width */
+  margin: 0; 
+  border-radius: 0;         /* Keeps it full-bleed sharp */
+  overflow: hidden; 
+height: 80vh; min-height: 600px;  display: flex; 
+  align-items: center; 
+  background: #0a0a0a; 
+}  .pd-hero-bg { position: absolute; inset: 0; }
   .pd-hero-bg img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.32); }
   .pd-hero-overlay { position: absolute; inset: 0; background: linear-gradient(110deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.45) 55%, transparent 100%); }
   .pd-hero-inner { position: relative; z-index: 2; width: 100%; padding: 4rem 5%; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
@@ -26,7 +35,7 @@ const styles = `
   .pd-btn-ghost { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.45); padding: 13px 26px; font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 0.73rem; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; border-radius: 4px; transition: .3s; }
   .pd-btn-ghost:hover { border-color: #fff; }
   .pd-metrics { display: flex; flex-direction: column; gap: 1rem; }
-  .pd-metric { background: rgba(255,255,255,0.07); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,.12); border-radius: 10px; padding: 1.2rem 1.8rem; display: flex; justify-content: space-between; align-items: center; transition: .3s; }
+  .pd-metric { background: rgba(255,255,255,0.07); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,.12); border-radius: 10px; padding: 1.2rem 1.8rem; display: flex; justify-content: space-between; align-items: center; transition: .3s;  }
   .pd-metric:hover { border-color: rgba(244,83,28,.5); background: rgba(244,83,28,.06); }
   .pd-metric-val { font-size: 2rem; font-weight: 700; color: #f4531c; line-height: 1; }
   .pd-metric-sub { font-size: 0.68rem; color: rgba(255,255,255,.5); margin-top: 3px; }
@@ -41,7 +50,7 @@ const styles = `
   @keyframes pdSlide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
   /* SECTIONS */
-  .pd-section { max-width: 1320px; margin: 0 auto; padding: 5.5rem 5%; }
+  .pd-section { max-width: 1320px; margin: 0 auto; padding: 3.5rem 5%; }
   .pd-eyebrow { font-size: .67rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #f4531c; margin-bottom: .75rem; display: flex; align-items: center; gap: 10px; }
   .pd-eyebrow::before { content: ''; width: 26px; height: 2px; background: #f4531c; }
   .pd-stitle { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -1px; line-height: 1.1; margin-bottom: 1.2rem; }

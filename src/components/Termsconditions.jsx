@@ -143,7 +143,7 @@ function Section({ id, num, title, children }) {
   const [ref, vis] = useReveal();
   return (
     <section id={id} ref={ref} style={{
-      padding: "64px 0",
+      padding: "clamp(32px, 8vw, 64px) 0",
       borderBottom: "1px solid #EBEBЕ7",
       opacity: vis ? 1 : 0,
       transform: vis ? "none" : "translateY(18px)",
@@ -231,8 +231,7 @@ function Sidebar({ sections, active }) {
 function PageHero({ eyebrow, title, subtitle, meta }) {
   return (
     <div style={{
-      padding: "64px 0 56px",
-      borderBottom: "1px solid #EBEBЕ7",
+padding: "clamp(32px, 7vw, 64px) 0 clamp(24px, 5vw, 56px)",      borderBottom: "1px solid #EBEBЕ7",
     }}>
       <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "3px", textTransform: "uppercase", color: "#C8C8C4", marginBottom: 18, display: "flex", alignItems: "center", gap: 10 }}>
         <span style={{ width: 24, height: 1, background: "#C8C8C4", display: "block" }} />
@@ -374,8 +373,7 @@ function TermsPage() {
 
         <Section id="t-contact" num="12" title="Contact">
           <P>For questions related to these Terms, reach us through:</P>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 12, marginBottom: 16 }}>
-            {[
+<div className="legal-contact-grid" style={{ gap: 12, marginBottom: 16 }}>            {[
               { label: "General Careers", value: "careers@myaccessio.com", href: "mailto:careers@myaccessio.com" },
               { label: "Internship Queries", value: "internships@myaccessio.com", href: "mailto:internships@myaccessio.com" },
               { label: "Phone", value: "+91 7674014444" },
@@ -508,7 +506,7 @@ function PrivacyPage() {
 
         <Section id="p-contact" num="11" title="Contact">
           <P>For privacy-related questions, data requests, or concerns, contact us at:</P>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 12, marginBottom: 16 }}>
+<div className="legal-contact-grid" style={{ gap: 12, marginBottom: 16 }}>
             {[
               { label: "Privacy Queries", value: "careers@myaccessio.com", href: "mailto:careers@myaccessio.com" },
               { label: "Phone", value: "+91 7674014444" },
@@ -696,7 +694,7 @@ export default function LegalPages() {
         @media (max-width: 900px) {
           .legal-sidebar { display: none !important; }
           .legal-main { padding-left: 0 !important; }
-          .legal-header-inner { padding: 0 20px !important; }
+          .legal-header-inner { padding: 0 8px !important; }
           .legal-content-wrap { padding: 0 20px !important; }
           .legal-bottom-bar { padding: 20px !important; }
           .legal-date { display: none !important; }
@@ -715,6 +713,58 @@ export default function LegalPages() {
   
   /* Button size inka tagginchu mobile lo */
   .legal-header-inner a { padding: 6px 10px !important; font-size: 9px !important; }
+}
+    .legal-header-inner { 
+    padding: 0 1rem !important; 
+    gap: 0.5rem !important; 
+    justify-content: space-between; 
+  }
+
+  /* Hide the "LEGAL" text and separator on small mobiles to save space */
+  .legal-header-inner span[style*="text-transform: uppercase"],
+  .legal-header-inner span[style*="width: 1"] {
+    display: none !important;
+  }
+
+  /* Shrink the logo size slightly */
+  .legal-header-inner img {
+    height: 14px !important;
+  }
+
+  /* Reduce button size significantly */
+  .legal-header-inner button {
+    padding: 6px 8px !important;
+    font-size: 8px !important;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* Tab scrolling fix */
+  .legal-tabs { 
+    padding-left: 0.5rem !important; 
+    mask-image: linear-gradient(to right, black 80%, transparent 100%);
+  }
+  
+  .legal-tabs button { 
+    padding: 0 10px !important; 
+    font-size: 11px !important; 
+  }
+
+  /* Fix Section Gaps */
+  section {
+    padding: 10px 0 !important; /* Reduced from 64px */
+  }
+    /* Add this OUTSIDE the media query (Default Desktop) */
+.legal-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Ensure this is INSIDE the @media (max-width: 600px) block */
+@media (max-width: 600px) {
+  .legal-contact-grid { 
+    grid-template-columns: 1fr !important; 
+  }
 }
       `}</style>
 

@@ -12,11 +12,17 @@ const styles = `
 
   /* HERO */
   .fw-hero {
-    position: relative; width: 95%; margin: 1.5rem auto 0;
-    border-radius: 1.25rem; overflow: hidden;
-    background: #1a1a1a; min-height: 36rem;
-    display: flex; align-items: flex-end;
-  }
+  position: relative; 
+  width: 95%; /* Slightly wider to look better */
+  margin: -2vh auto 0; /* Reduced top margin from 1.5rem to 1vh */
+  border-radius: 1.0rem; 
+  overflow: hidden;
+  background: #1a1a1a; 
+  min-height: 70vh; 
+  display: flex; 
+  align-items: flex-end;
+}
+
   .fw-hero-grid {
     position: absolute; inset: 0;
     background-image:
@@ -81,7 +87,7 @@ const styles = `
   .fw-stat-l { font-size: 0.62rem; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
 
   /* TAG CLOUD SECTION */
-  .fw-tags-wrap { width: 95%; margin: 1rem auto; }
+  .fw-tags-wrap { width: 95%; margin: 2vh auto; }
   .fw-tags-inner {
     background: #1a1a1a; border-radius: 1.25rem;
     padding: 3.5rem 4rem;
@@ -108,7 +114,7 @@ const styles = `
 
   /* PAGE BODY */
   .fw-body { width: 90%; margin: 0 auto; }
-  .fw-section { padding: 5.5rem 0; }
+  .fw-section { padding: 4vh 0; }
   .fw-divider { height: 1px; background: #e8e8e8; margin: 0; }
   .fw-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #f4531c; margin-bottom: 0.6rem; }
   .fw-sec-title { font-size: clamp(1.8rem, 3.2vw, 2.8rem); font-weight: 700; line-height: 1.1; color: #1a1a1a; margin-bottom: 0.8rem; }
@@ -187,7 +193,7 @@ const styles = `
   /* CTA */
   .fw-cta {
     background: #f4531c; border-radius: 1.25rem;
-    padding: 4rem 5rem; margin: 4rem 0 6rem;
+     padding: 6vh 5rem; margin: 4vh 0 6vh;
     display: flex; justify-content: space-between; align-items: center;
     gap: 2rem; flex-wrap: wrap; position: relative; overflow: hidden;
   }
@@ -196,17 +202,60 @@ const styles = `
   .fw-cta-btn { background: #000; color: #fff; border: none; padding: 13px 28px; font-size: 0.72rem; font-weight: 700; border-radius: 5px; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s; position: relative; z-index: 1; flex-shrink: 0; }
   .fw-cta-btn:hover { background: #111; transform: translateY(-2px); }
 
-  @media(max-width:900px){
-    .fw-hero-inner { grid-template-columns: 1fr; }
-    .fw-tags-inner { grid-template-columns: 1fr; gap: 2rem; }
+ /* --- MOBILE RESPONSIVE UPDATES --- */
+
+  @media(max-width: 900px) {
+    /* 1. Hero Section Fix */
+    .fw-hero-inner { 
+      grid-template-columns: 1fr; 
+      padding: 100px 5% 5vh; /* Added top padding for header clearance */
+      gap: 2rem;
+      align-items: flex-start;
+    }
+    
+    .fw-hero h1 { font-size: 3.2rem; }
+
+    /* 2. Hero Stats Fix (The 200+ boxes) */
+    /* We change the rows into a 2x2 grid that fits the screen width */
+    .fw-stats { width: 100%; }
+    .fw-stat-row { 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap: 0.8rem; 
+      margin-bottom: 0.8rem;
+    }
+    .fw-stat-box { padding: 1rem; }
+
+    /* 3. Firmware Solutions Fix (Tags & Image box) */
+    /* Stack the text/tags on top of the image */
+    .fw-tags-inner { 
+      grid-template-columns: 1fr; 
+      padding: 2.5rem 1.5rem; 
+      gap: 2.5rem; 
+    }
+    .fw-tags-inner h2 { font-size: 1.8rem; }
+    .fw-tag-cloud { justify-content: flex-start; }
+
+    /* General Layout */
     .fw-what-grid { grid-template-columns: 1fr; }
     .fw-cards { grid-template-columns: 1fr 1fr; }
     .fw-modules { grid-template-columns: 1fr 1fr; }
-    .fw-cta { padding: 2.5rem 2rem; }
   }
-  @media(max-width:600px){
+
+  @media(max-width: 600px) {
+    .fw-hero h1 { font-size: 2.5rem; }
+    
+    /* Stack stats into a single column on very small phones if 2x2 is too tight */
+    .fw-stat-row { grid-template-columns: 1fr; } 
+    
     .fw-cards { grid-template-columns: 1fr; }
-    .fw-section { padding: 3.5rem 0; }
+    .fw-modules { grid-template-columns: 1fr; }
+    
+    .fw-btns { flex-direction: column; width: 100%; }
+    .btn-org, .btn-ghost-w { width: 100%; text-align: center; }
+
+    .fw-cta { padding: 3rem 1.5rem; text-align: center; justify-content: center; }
+    .fw-cta h2 { font-size: 1.5rem; margin-bottom: 1.5rem; }
   }
 `;
 
@@ -304,7 +353,7 @@ export default function OpenCPUOpenWRT() {
 
         {/* WHAT WE DO */}
         <div className="fw-section">
-          <div className="fw-divider" style={{ marginBottom: "5rem" }} />
+          <div className="fw-divider" style={{ marginBottom: "2rem" }} />
           <div className="fw-label">What We Do</div>
           <h2 className="fw-sec-title">Embedded intelligence, <span>firmware-first</span></h2>
           <div className="fw-what-grid">

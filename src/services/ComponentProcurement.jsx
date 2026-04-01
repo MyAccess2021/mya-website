@@ -7,7 +7,7 @@ const styles = `
   * { box-sizing: border-box; margin: 0; padding: 0; }
   .cp-page { font-family: 'DM Sans', sans-serif; background: #ffffff; color: #1a1a1a; overflow-x: hidden; }
   .cp-page, .pcb-page, .ed-page, .fw-page, .pd-page, .sr-page {
-  padding-top: 80px; /* Adjust this based on your Header's height */
+  padding-top: 41px; /* Adjust this based on your Header's height */
 }
 
   /* HERO */
@@ -70,7 +70,7 @@ const styles = `
 
   /* PAGE BODY */
   .cp-body { width: 90%; margin: 0 auto; }
-  .cp-section { padding: 5.5rem 0; }
+  .cp-section { padding: 2rem 0; }
   .cp-divider { height: 1px; background: #e8e8e8; }
   .cp-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #f4531c; margin-bottom: 0.6rem; }
   .cp-sec-title { font-size: clamp(1.8rem, 3.2vw, 2.8rem); font-weight: 700; line-height: 1.1; color: #1a1a1a; margin-bottom: 0.8rem; }
@@ -137,7 +137,7 @@ const styles = `
   /* CTA */
   .cp-cta {
     background: #1a1a1a; border-radius: 1.25rem;
-    padding: 5rem; margin: 4rem 0 6rem;
+    padding: 5rem; margin: 1rem 0 3rem;
     display: flex; gap: 5rem; align-items: center;
     position: relative; overflow: hidden;
   }
@@ -153,20 +153,54 @@ const styles = `
   .cp-cta-btn-b { background: transparent; color: #fff; border: 1.5px solid #333; padding: 14px 32px; font-size: 0.75rem; font-weight: 700; border-radius: 5px; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s; white-space: nowrap; }
   .cp-cta-btn-b:hover { border-color: #666; transform: translateY(-2px); }
 
+/* --- MOBILE RESPONSIVE UPDATES --- */
+
   @media(max-width:1024px){
     .cp-hero { grid-template-columns: 1fr; }
     .cp-hero-right { padding: 3rem 5%; }
-    .cp-tags-inner { grid-template-columns: 1fr; gap: 2rem; }
+    
+    /* Tags Section - Left Aligned & 2 Column Grid */
+    .cp-tags-inner { 
+      grid-template-columns: 1fr; 
+      gap: 2.5rem; 
+      padding: 3rem 1.5rem; 
+      text-align: left; /* Keep everything left aligned */
+    }
+    
+    .cp-tag-cloud { 
+      display: grid; 
+      grid-template-columns: repeat(2, 1fr); /* 2 tags per row */
+      gap: 10px; 
+    }
+    
+    .cp-m-tag { 
+      width: 100%; 
+      justify-content: flex-start; /* Ensure icon + text starts from left */
+      font-size: 0.7rem;
+      padding: 0 0.6rem;
+    }
+
     .cp-cat-grid { grid-template-columns: repeat(2,1fr); }
     .cp-vp-grid { grid-template-columns: 1fr; }
     .cp-cta { flex-direction: column; gap: 2rem; padding: 3rem 2rem; }
     .cp-source-grid { grid-template-columns: 1fr; }
   }
+
   @media(max-width:600px){
-    .cp-flow { flex-wrap: wrap; }
+    .cp-flow { flex-wrap: wrap; justify-content: flex-start; }
+    .cp-flow-step { flex: 0 0 33.33%; margin-bottom: 1.5rem; }
     .cp-flow::before { display: none; }
     .cp-cat-grid { grid-template-columns: 1fr 1fr; }
-    .cp-section { padding: 3.5rem 0; }
+    .cp-section { padding: 2rem 0; }
+    
+    /* Ensure the tags stay as 2 columns on very small screens */
+    .cp-tag-cloud { grid-template-columns: 1fr 1fr; }
+    
+    .cp-visual-footer {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
   }
 `;
 
@@ -272,7 +306,7 @@ export default function ComponentProcurement() {
 
         {/* PROCESS */}
         <div className="cp-section">
-          <div className="cp-divider" style={{marginBottom:"5rem"}} />
+          <div className="cp-divider" style={{marginBottom:"2rem"}} />
           <div className="cp-label">How It Works</div>
           <h2 className="cp-sec-title">From BOM to <span>your dock</span></h2>
           <p className="cp-sec-p">A streamlined 6-step process designed to remove friction, reduce risk, and get parts to your production line on time.</p>

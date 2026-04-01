@@ -4,15 +4,15 @@ import Footer from "./Footer";
 import { Link } from 'react-router-dom';
 import { useLang } from "../context/LanguageContext";
 
-// --- DATA (images/icons untayi, only names translated) ---
+// --- DATA ---
 const industryItems = [
-  { nameKey: "ind_ems",         icon: "/assets/home/Pick And Place@3x.webp", link: "#",customWidth: '65%' },
-  { nameKey: "ind_robotics",    icon: "/assets/home/Asset 18@3x.webp",link: "#", },
-  { nameKey: "ind_3dprint",     icon: "/assets/home/3d print_1@3x.webp", link: "#",customWidth: '80%' },
-  { nameKey: "ind_ai",          icon: "/assets/home/Asset 14@3x.webp", link: "#" },
-  { nameKey: "ind_m2m",         icon: "/assets/home/Asset 11@3x.webp", link: "#" },
-  { nameKey: "ind_proddev",     icon: "/assets/home/product@3x.webp", link: "#",customWidth: '85%' },
-  { nameKey: "ind_allservices", icon: "/assets/home/Asset 15@3x.webp", link: "/industries" },
+  // { nameKey: "ind_ems",         icon: "/assets/home/Pick And Place@3x.webp", link: "#",customWidth: '65%' },
+  // { nameKey: "ind_robotics",    icon: "/assets/home/Asset 18@3x.webp",link: "#", },
+  // { nameKey: "ind_3dprint",     icon: "/assets/home/3d print_1@3x.webp", link: "#",customWidth: '80%' },
+  // { nameKey: "ind_ai",          icon: "/assets/home/Asset 14@3x.webp", link: "#" },
+  // { nameKey: "ind_m2m",         icon: "/assets/home/Asset 11@3x.webp", link: "#" },
+  // { nameKey: "ind_proddev",     icon: "/assets/home/product@3x.webp", link: "#",customWidth: '85%' },
+  // { nameKey: "ind_allservices", icon: "/assets/home/Asset 15@3x.webp", link: "/industries" },
 ];
 
 const serviceTags = [
@@ -20,7 +20,7 @@ const serviceTags = [
   { name: "PCB Design",                icon: "/assets/home/pcbdesign@3x.webp",media: "/assets/home/pcb_design.webp",type: "photo"   },
   { name: "Embedded Development",      icon: "/assets/home/icon3.png",media: "/assets/home/embedded_development.webp",type: "photo"  },
   { name: "OpenCPU",                   icon: "/assets/home/cpu@3x.webp",media: "/assets/home/open_cpu.webp",type: "photo"  },
-    { name: "OpenWrt",           icon: "/assets/home/wrt@3x.webp",media: "/assets/home/open_wrt.webp",type: "photo"  },
+  { name: "OpenWrt",           icon: "/assets/home/wrt@3x.webp",media: "/assets/home/open_wrt.webp",type: "photo"  },
   { name: "PCB Fabrication",           icon: "/assets/home/fabrication@3x.webp",media: "/assets/home/pcb fabrications.webp",type: "photo"  },
   { name: "Component Procurement",     icon: "/assets/home/PROCUREMENT@3x.webp" ,media: "/assets/home/pcb_image.jpg",type: "photo" },
   { name: "EMS Assembly",              icon: "/assets/home/ems@3x.webp",media: "/assets/home/pcb_image.jpg",type: "photo"  },
@@ -34,9 +34,9 @@ const serviceTags = [
   { name: "CI/CD & DevOps",            icon: "/assets/home/devops.webp",media: "/assets/home/pcb_image.jpg",type: "photo"  },
   { name: "Patent Filing Support",     icon: "/assets/home/patent@3x.webp",media: "/assets/home/pcb_image.jpg",type: "photo" },
 ];
+
 const makeAnythingData = [
   {
-    // Index 0: Products
     hero: { titleKey: "home_rapid_title", descKey: "home_rapid_desc", linkKey: "home_watch_webinar", image: "/assets/home/bamboo lab1.webp" },
     grid: [
       { titleKey: "home_concept",    img: "/assets/home/img1.webp" },
@@ -46,7 +46,6 @@ const makeAnythingData = [
     ]
   },
   {
-    // Index 1: Auxiliary Products
     hero: { titleKey: "aux_hero_title", descKey: "aux_hero_desc", linkKey: "aux_link", image: "/assets/home/aux_hero.jpg" },
     grid: [
       { titleKey: "aux_item1", img: "/assets/home/aux1.jpg" },
@@ -56,7 +55,6 @@ const makeAnythingData = [
     ]
   },
   {
-    // Index 2: Giveaway Products
     hero: { titleKey: "giveaway_hero_title", descKey: "giveaway_hero_desc", linkKey: "giveaway_link", image: "/assets/home/giveaway_hero.jpg" },
     grid: [
       { titleKey: "giveaway_item1", img: "/assets/home/give1.jpg" },
@@ -66,7 +64,6 @@ const makeAnythingData = [
     ]
   },
   {
-    // Index 3: Laboratory And Farms
     hero: { titleKey: "lab_hero_title", descKey: "lab_hero_desc", linkKey: "lab_link", image: "/assets/home/lab_hero.jpg" },
     grid: [
       { titleKey: "lab_item1", img: "/assets/home/lab1.jpg" },
@@ -76,7 +73,6 @@ const makeAnythingData = [
     ]
   },
   {
-    // Index 4: Skill Enhancement
     hero: { titleKey: "skill_hero_title", descKey: "skill_hero_desc", linkKey: "skill_link", image: "/assets/home/skill_hero.jpg" },
     grid: [
       { titleKey: "skill_item1", img: "/assets/home/skill1.jpg" },
@@ -91,7 +87,11 @@ export default function Home() {
   const { t } = useLang();
   const [activeService, setActiveService] = useState(serviceTags[0]);
   const [activeTabIndex, setActiveTabIndex] = useState(0); 
-  
+
+  const marqueeItems = [
+    t("ind_ems"), t("ind_robotics"), t("ind_3dprint"),
+    t("ind_ai"), t("ind_m2m"), t("ind_proddev"), t("ind_allservices")
+  ];
 
   const featureNews = {
     category: t("home_feature_cat"),
@@ -112,9 +112,29 @@ export default function Home() {
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html, body { width: 100%; overflow-x: hidden; background: #ffffff; font-family: 'DM Sans', sans-serif; -webkit-text-size-adjust: 100%; }
-        .home-main { padding-top: 5.2rem; width: 100%; max-width: 100vw; display: flex; flex-direction: column; align-items: center; margin: 0 auto; }
-        .hero-container { position: relative; width: 95%; height: 36.25rem; border-radius: 1.25rem; overflow: hidden; background: #000; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; }
-        .hero-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 0.9; }
+ /* 1. Reduce gap between Header and Hero */
+.home-main { 
+  padding-top:9vh;
+  width: 100%; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  margin: 0 auto; 
+}        
+        /* Modified Hero to attach with Marquee */
+.hero-container { 
+  position: relative; 
+  width: 95%; 
+  height: 75vh; /* Hero now takes 75% of the screen height */
+  border-radius: 1.25rem 1.25rem 0 0; 
+  overflow: hidden; 
+  background: #000; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  text-align: center; 
+  color: #fff; 
+}        .hero-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 0.9; }
         .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); z-index: 2; }
         .hero-content { position: relative; z-index: 3; max-width: 56rem; padding: 0 1.2rem; }
         .hero-content h1 { font-size: clamp(2rem, 5.5vw, 4.5rem); font-weight: 700; line-height: 1.05; margin-bottom: 1.25rem; text-transform: uppercase; letter-spacing: -1.5px; }
@@ -124,14 +144,26 @@ export default function Home() {
         .btn-orange { background: #f4531c; color: #fff; }
         .btn-outline { background: transparent; color: #fff; border: 1.5px solid #fff; }
         .h-btn:hover { transform: translateY(-3px); box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.3); }
+
+        /* Added Marquee CSS */
+        .home-marquee { background: #f4531c; padding: 14px 0; overflow: hidden; white-space: nowrap; width: 95%; margin: 0 auto; border-radius: 0 0 1.25rem 1.25rem; margin-top: -1px; }
+        .home-marquee-track { display: inline-flex; animation: homeSlide 30s linear infinite; }
+        .home-mitem { font-size: .75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #fff; padding: 0 2rem; display: flex; align-items: center; gap: 10px; }
+        .home-mdot { color: rgba(255,255,255,0.4); }
+        @keyframes homeSlide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
         .industry-grid { display: grid; grid-template-columns: repeat(7, 1fr); width: 95%; gap: 0.75rem; margin-top: 1.5rem; margin-bottom: 4rem; }
         .industry-card { background: #1a1a1a; border-radius: 0.75rem; padding: 1rem; text-decoration: none; color: #fff !important; aspect-ratio: 1/1; display: flex; flex-direction: column; transition: 0.3s ease; }
         .industry-card:hover { background: #000 !important; color: #fff !important; transform: translateY(-5px); }
         .industry-card span { font-size: 0.75rem; font-weight: 600; opacity: 0.9; margin-bottom: 0.6rem; }
         .icon-container { flex: 1; display: flex; align-items: center; justify-content: center; }
         .industry-icon { width: 50%; height: auto; object-fit: contain; opacity: 0.8; }
-        .news-section { width: 90%; margin-bottom: 5rem; }
-        .section-title { font-size: 2.375rem; font-weight: 600; color: #1a1a1a; margin-bottom: 2rem; }
+      /* 3. Tighten Latest News section */
+.news-section { 
+  width: 90%; 
+  margin-top: 3rem; /* Added to control gap from marquee if grid is hidden */
+  margin-bottom: 2rem; 
+}        .section-title { font-size: 2.375rem; font-weight: 600; color: #1a1a1a; margin-bottom: 1.5rem; }
         .news-feature-card { display: flex; background: #0f1113; border-radius: 1rem; margin-bottom: 1rem; height: auto; padding: 0.6rem; gap: 0.6rem; align-items: stretch; }
         .feature-img { width: 55%; height: 100%; object-fit: cover; border-radius: 0.75rem; }
         .feature-content { width: 45%; padding: 3rem; display: flex; flex-direction: column; justify-content: center; color: #fff; align-items: flex-start; text-align: left; background: rgba(255,255,255,0.02); border-radius: 0.75rem; }
@@ -152,8 +184,14 @@ export default function Home() {
           .industry-card { flex: 0 0 10rem; }
         }
         @media (max-width: 900px) {
-          .hero-container, .news-section { width: 92% !important; margin: 0 auto; }
-          .hero-container { height: 30rem; }
+        .home-main { padding-top: 11vh; }
+         .news-section { 
+    width: 92% !important; 
+    margin: 2.5rem auto !important; /* Increased top/bottom margin */
+  }
+        
+          .hero-container, .home-marquee, .news-section { width: 92% !important; margin: 0 auto; }
+          .hero-container { height: 60vh;}
           .hero-btns { flex-direction: column; width: 100%; max-width: 18rem; margin: 0 auto; }
           .h-btn { width: 100%; justify-content: center; }
           .news-feature-card { flex-direction: column !important; height: auto !important; }
@@ -164,7 +202,8 @@ export default function Home() {
           .section-title { font-size: 1.75rem; }
           .news-footer { margin-top: 2rem; margin-bottom: 2rem; }
         }
-        .materials-wrapper { width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; background: #1a1a1a; color: #fff; padding: 6rem 0; margin-top: 4rem; display: flex; justify-content: center; overflow: hidden; }
+          /* 4. Tighten Materials/Solve Complex section */
+        .materials-wrapper { width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; background: #1a1a1a; color: #fff; padding: 3.5rem 0; margin-top: 3rem; display: flex; justify-content: center; overflow: hidden; }
         .materials-inner { width: 90%; display: grid; grid-template-columns: 1fr 1.1fr; gap: 4rem; align-items: center; }
         .materials-left { text-align: left; }
         .materials-left h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); line-height: 1.1; margin-bottom: 2rem; }
@@ -179,11 +218,19 @@ export default function Home() {
         @media (max-width: 900px) {
           .materials-inner { display: flex !important; flex-direction: column !important; text-align: center; gap: 3rem; }
           .materials-left { display: flex; flex-direction: column; align-items: center; width: 100%; }
-          .tag-cloud { flex-wrap: nowrap !important; overflow-x: auto !important; width: 100vw !important; margin-left: 0; padding: 10px 20px; justify-content: flex-start !important; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .tag-cloud { 
+    flex-wrap: wrap !important;      /* Change from nowrap to wrap */
+    overflow-x: visible !important;  /* Remove horizontal scroll */
+    width: 100% !important;          /* Fit within the screen width */
+    justify-content: center !important; /* Center the tags for a cleaner look */
+    padding: 0 px !important;      /* Add side padding so tags don't touch screen edges */
+    margin-left: 0; 
+  }
           .tag-cloud::-webkit-scrollbar { display: none; }
           .material-hero-card { width: 100%; }
         }
-        .apps-wrapper { width: 90%; max-width: 1720px; margin: 6rem auto; text-align: left; }
+         /* 5. Tighten Make Anything section */
+        .apps-wrapper { width: 90%; max-width: 1720px; margin: 3.5rem auto; text-align: left; }
         .apps-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; margin-bottom: 2rem; color: #1a1a1a; }
         .apps-title span { font-weight: 400; color: #666; }
         .apps-tabs { display: flex; gap: 1rem; margin-bottom: 3rem; overflow-x: auto; padding-bottom: 10px; }
@@ -209,11 +256,14 @@ export default function Home() {
           .app-grid { grid-template-columns: 1fr; }
           .app-hero-content h3 { font-size: 1.8rem; }
         }
-        .get-in-touch-banner { width: 100%; max-width: 1800px; height: 24rem; margin: 6rem auto 8rem auto; background: url('/assets/home/banner.webp') center/cover no-repeat; border-radius: 1.5rem; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #fff; position: relative; overflow: hidden; }
+          /* 6. Tighten Get In Touch banner */
+        .get-in-touch-banner { width: 100%; max-width: 1800px; height: 24rem; margin: 3rem auto 1rem auto; background: url('/assets/home/banner.webp') center/cover no-repeat; border-radius: 1.5rem; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #fff; position: relative; overflow: hidden; }
         .get-in-touch-banner::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); z-index: 1; }
         .get-in-touch-banner h2 { position: relative; z-index: 2; font-size: clamp(2.5rem, 7vw, 5rem); font-weight: 800; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px; }
         .git-btn-black { position: relative; z-index: 2; background: #000; color: #fff; padding: 1rem 2.5rem; border-radius: 9px; font-weight: 700; border: none; font-size: 0.65rem; cursor: pointer; text-transform: uppercase; }
+        
         @media (max-width: 768px) { .get-in-touch-banner { width: 98% !important; height: 18rem; } }
+        
       `}</style>
 
       <Header />
@@ -235,26 +285,39 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ORANGE MARQUEE BAR ATTACHED TO HERO */}
+        <div className="home-marquee">
+          <div className="home-marquee-track">
+            {[...marqueeItems, ...marqueeItems].map((item, i) => (
+              <span key={i} className="home-mitem">
+                {item} <span className="home-mdot">●</span>
+              </span>
+            ))}
+          </div>
+        </div>
+
         {/* 7 BOXES */}
-        <section className="industry-grid">
-          {industryItems.map((item, index) => (
-            <Link key={index} to={item.link} className="industry-card">
-              <span>{t(item.nameKey)}</span>
-              <div className="icon-container">
-               <img 
-  src={item.icon} 
-  alt={t(item.nameKey)} 
-  className="industry-icon" 
-  style={{ 
-    width: item.customWidth || '50%', 
-    opacity: item.customWidth ? 1 : 0.8 
-  }} 
-/>
-                
-              </div>
-            </Link>
-          ))}
-        </section>
+      {/* 7 BOXES - Only renders if there are items */}
+{industryItems.length > 0 && (
+  <section className="industry-grid">
+    {industryItems.map((item, index) => (
+      <Link key={index} to={item.link} className="industry-card">
+        <span>{t(item.nameKey)}</span>
+        <div className="icon-container">
+          <img 
+            src={item.icon} 
+            alt={t(item.nameKey)} 
+            className="industry-icon" 
+            style={{ 
+              width: item.customWidth || '50%', 
+              opacity: item.customWidth ? 1 : 0.8 
+            }} 
+          />
+        </div>
+      </Link>
+    ))}
+  </section>
+)}
 
         {/* NEWS */}
         <section className="news-section">
@@ -292,25 +355,26 @@ export default function Home() {
                 <h2>{t("home_solve_title")} <span>{t("home_solve_sub")}</span></h2>
                 <div className="tag-cloud">
                 {serviceTags.map((tag, index) => (
-  <div key={index} className="m-tag" onClick={() => setActiveService(tag)}>
-    <img src={tag.icon} alt="" />
-    {tag.name}
-  </div>
-))}
+                  <div key={index} className="m-tag" onClick={() => setActiveService(tag)}>
+                    <img src={tag.icon} alt="" />
+                    {tag.name}
+                  </div>
+                ))}
                 </div>
-<Link to="/industries" style={{ textDecoration: 'none' }}>
-  <button className="h-btn btn-orange">
-    {t("home_explore_services")} <span>&gt;</span>
-  </button>
-</Link>              </div>
-             <div className="material-hero-card">
-  {activeService.type === "video" ? (
-    <video key={activeService.media} className="m-hero-img" autoPlay muted loop playsInline>
-      <source src={activeService.media} type="video/mp4" />
-    </video>
-  ) : (
-    <img src={activeService.media} className="m-hero-img" alt={activeService.name} />
-  )}
+                <Link to="/industries" style={{ textDecoration: 'none' }}>
+                  <button className="h-btn btn-orange">
+                    {t("home_explore_services")} <span>&gt;</span>
+                  </button>
+                </Link>              
+              </div>
+              <div className="material-hero-card">
+                {activeService.type === "video" ? (
+                  <video key={activeService.media} className="m-hero-img" autoPlay muted loop playsInline>
+                    <source src={activeService.media} type="video/mp4" />
+                  </video>
+                ) : (
+                  <img src={activeService.media} className="m-hero-img" alt={activeService.name} />
+                )}
                 <div className="m-hero-footer">
                   <span style={{fontSize:'0.85rem',fontWeight:'700'}}>{t("home_biocompat")}</span>
                   <a href="#" style={{color:'#fff',fontWeight:'700',fontSize:'0.8rem',textDecoration:'none'}}>{t("learn_more_btn")} &gt;</a>
@@ -320,44 +384,44 @@ export default function Home() {
           </section>
 
           {/* Make Anything Section */}
-       <section className="apps-wrapper">
-  <h2 className="apps-title">{t("home_make_anything")} <span>{t("home_make_anything_sub")}</span></h2>
-  
-  {/* Tabs Header */}
-  <div className="apps-tabs">
-    {[t("tab_products"), t("tab_auxiliary"), t("tab_giveaway"), t("tab_lab"), t("tab_skill")].map((nav, i) => (
-      <button 
-        key={i} 
-        className={`app-tab ${activeTabIndex === i ? 'active' : ''}`}
-        onClick={() => setActiveTabIndex(i)}
-      >
-        {nav}
-      </button>
-    ))}
-  </div>
+          <section className="apps-wrapper">
+            <h2 className="apps-title">{t("home_make_anything")} <span>{t("home_make_anything_sub")}</span></h2>
+            
+            {/* Tabs Header */}
+            <div className="apps-tabs">
+              {[t("tab_products"), t("tab_auxiliary"), t("tab_giveaway"), t("tab_lab"), t("tab_skill")].map((nav, i) => (
+                <button 
+                  key={i} 
+                  className={`app-tab ${activeTabIndex === i ? 'active' : ''}`}
+                  onClick={() => setActiveTabIndex(i)}
+                >
+                  {nav}
+                </button>
+              ))}
+            </div>
             <div className="app-hero-card">
-    <img src={makeAnythingData[activeTabIndex].hero.image} className="app-hero-img" alt="Hero" />
-    <div className="app-hero-content">
-      <h3>{t(makeAnythingData[activeTabIndex].hero.titleKey)}</h3>
-      <p>{t(makeAnythingData[activeTabIndex].hero.descKey)}</p>
-      <div style={{display:'flex',gap:'2rem',alignItems:'center'}}>
-        <button className="h-btn" style={{background:'#000',color:'#fff',padding:'12px 25px',fontSize:'11px'}}>{t("learn_more_btn")}</button>
-        <a href="#" style={{fontWeight:'700',fontSize:'0.8rem',color:'#000',textDecoration:'none'}}>
-          {t(makeAnythingData[activeTabIndex].hero.linkKey)}
-        </a>
-      </div>
-    </div>
-  </div>
+              <img src={makeAnythingData[activeTabIndex].hero.image} className="app-hero-img" alt="Hero" />
+              <div className="app-hero-content">
+                <h3>{t(makeAnythingData[activeTabIndex].hero.titleKey)}</h3>
+                <p>{t(makeAnythingData[activeTabIndex].hero.descKey)}</p>
+                <div style={{display:'flex',gap:'2rem',alignItems:'center'}}>
+                  <button className="h-btn" style={{background:'#000',color:'#fff',padding:'12px 25px',fontSize:'11px'}}>{t("learn_more_btn")}</button>
+                  <a href="#" style={{fontWeight:'700',fontSize:'0.8rem',color:'#000',textDecoration:'none'}}>
+                    {t(makeAnythingData[activeTabIndex].hero.linkKey)}
+                  </a>
+                </div>
+              </div>
+            </div>
 
-  <div className="app-grid">
-    {makeAnythingData[activeTabIndex].grid.map((item, idx) => (
-      <a key={idx} href="#" className="app-small-card">
-        <img src={item.img} className="app-small-img" alt={t(item.titleKey)} />
-        <div className="card-footer">{t(item.titleKey)}</div>
-      </a>
-    ))}
-  </div>
-</section>
+            <div className="app-grid">
+              {makeAnythingData[activeTabIndex].grid.map((item, idx) => (
+                <a key={idx} href="#" className="app-small-card">
+                  <img src={item.img} className="app-small-img" alt={t(item.titleKey)} />
+                  <div className="card-footer">{t(item.titleKey)}</div>
+                </a>
+              ))}
+            </div>
+          </section>
 
           {/* Get In Touch */}
           <section className="get-in-touch-banner">

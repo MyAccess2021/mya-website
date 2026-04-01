@@ -53,13 +53,29 @@ export default function Header() {
   return (
     <>
       <style>{`
-        .fl-header {
-          position: fixed; top: 0; left: 0; width: 100%; height: 64px;
-          background: #fff; z-index: 1000; border-bottom: 1px solid #ececec;
-          transition: all 0.3s ease; display: flex; align-items: center;
-          overflow: visible;
-        }
-        .fl-header.scrolled { box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+      /* 1. Remove the border-bottom by default and set it to transparent */
+.fl-header {
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 64px;
+  background: #fff; 
+  z-index: 1000; 
+  /* Changed from #ececec to transparent */
+  border-bottom: 1px solid transparent; 
+  transition: all 0.3s ease; 
+  display: flex; 
+  align-items: center;
+  overflow: visible;
+}
+
+/* 2. Show the border and shadow ONLY when scrolled */
+.fl-header.scrolled { 
+  background: #fff;
+  border-bottom: 1px solid #ececec; /* Line appears on scroll */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Shadow appears on scroll */
+}
         .fl-header-inner {
           width: 100%; height: 100%; padding: 0 24px;
           display: flex; align-items: center; justify-content: space-between;
@@ -144,7 +160,7 @@ export default function Header() {
           {/* Logo */}
           <Link to="/" className="fl-header-left" style={{ textDecoration: 'none' }}>
             <img src="/assets/MYACCESS DOT.svg" alt="MYACCESS" className="logo-img" />
-            <div className="logo-chevron"><ChevronDown /></div>
+            {/* <div className="logo-chevron"><ChevronDown /></div> */}
           </Link>
 
           {/* Desktop Nav */}
@@ -167,6 +183,18 @@ export default function Header() {
                         return <a key={sub} href="https://mysafeshutter.in/" target="_blank" rel="noopener noreferrer" className="dropdown-link">{sub}</a>
                       } else if (sub === "All Services") {
                         return <Link key={sub} to="/industries" className="dropdown-link">{sub}</Link>
+                      }
+                      else if (sub === "All Services") {
+                        return <Link key={sub} to="/industries" className="dropdown-link">{sub}</Link>
+                      }
+                      else if (sub === "Embedded Development") {
+                        return <Link key={sub} to="/services/embedded-development" className="dropdown-link">{sub}</Link>
+                      }
+                      else if (sub === "PCB Design") {
+                        return <Link key={sub} to="/services/pcb-design" className="dropdown-link">{sub}</Link>
+                      }
+                       else if (sub === "Cloud Services") {
+                        return <Link key={sub} to="/services/cloud-service" className="dropdown-link">{sub}</Link>
                       }
                      else if (sub === "Factory Solutions") {
   // Use "dropdown-link" class to inherit the orange hover effect

@@ -8,19 +8,49 @@ const styles = `
   .ed-page { font-family: 'DM Sans', sans-serif; background: #ffffff; color: #111; overflow-x: hidden; }
 
   .cp-page, .pcb-page, .ed-page, .fw-page, .pd-page, .sr-page {
-  padding-top: 80px; /* Adjust this based on your Header's height */
-}
+    padding-top: 50px; 
+  }
 
-  /* HERO */
-  .ed-hero { position: relative; width: 95%; margin: 1.5rem auto 0; border-radius: 1.25rem; overflow: hidden; min-height: 580px; display: flex; align-items: center; background: #0a0a0a; }
+  /* HERO - UPDATED FOR SIDE-BY-SIDE LAYOUT */
+  .ed-hero { 
+    position: relative; 
+    width: 100%;              
+    margin: 0 auto;           
+    border-radius: 0;          
+    overflow: hidden; 
+    min-height: calc(80vh - 80px); 
+    display: flex; 
+    align-items: center; 
+    background: #0a0a0a; 
+  } 
   .ed-hero-bg { position: absolute; inset: 0; }
   .ed-hero-bg img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.3); }
   .ed-hero-overlay { position: absolute; inset: 0; background: linear-gradient(100deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 55%, transparent 100%); }
-  .ed-hero-content { position: relative; z-index: 2; padding: 4rem 5%; max-width: 700px; }
+  
+  /* Container updated to flex for two columns */
+/* Change this line in .ed-hero-content */
+.ed-hero-content { 
+  position: relative; 
+  z-index: 2; 
+  padding: 4rem 2%; /* Reduced from 5% to 2% to move it left */
+  max-width: 1400px; /* Optional: Increase max-width to allow it to spread more */
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Ensure it starts from the left */
+  gap: 4rem;
+}
+
+  .ed-hero-text-block {
+    flex: 1;
+    max-width: 650px;
+  }
+
   .ed-terminal-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(244,83,28,.15); border: 1px solid rgba(244,83,28,.35); color: #f4531c; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; padding: 7px 14px; border-radius: 4px; margin-bottom: 1.6rem; }
   .ed-cursor { width: 8px; height: 14px; background: #f4531c; display: inline-block; animation: edBlink 1.2s step-end infinite; }
   @keyframes edBlink { 0%,100%{opacity:1} 50%{opacity:0} }
-  .ed-hero h1 { font-size: clamp(2.8rem, 6vw, 5.5rem); font-weight: 700; line-height: 1.0; color: #fff; letter-spacing: -2px; margin-bottom: 1.4rem; }
+  .ed-hero h1 { font-size: clamp(2.8rem, 5vw, 5.5rem); font-weight: 700; line-height: 1.0; color: #fff; letter-spacing: -2px; margin-bottom: 1.4rem; }
   .ed-hero h1 em { color: #f4531c; font-style: normal; }
   .ed-hero-sub { font-size: 1rem; color: rgba(255,255,255,0.65); line-height: 1.8; max-width: 480px; margin-bottom: 2.5rem; }
   .ed-hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
@@ -29,8 +59,16 @@ const styles = `
   .ed-btn-ghost { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.45); padding: 13px 26px; font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 0.73rem; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; border-radius: 4px; transition: .3s; }
   .ed-btn-ghost:hover { border-color: #fff; }
 
-  /* CODE WINDOW */
-  .ed-code-window { background: #0f1a0f; border: 1px solid rgba(244,83,28,.25); border-radius: 10px; overflow: hidden; max-width: 640px; }
+  /* CODE WINDOW - UPDATED */
+  .ed-code-window { 
+    flex: 1;
+    background: #0f1a0f; 
+    border: 1px solid rgba(244,83,28,.25); 
+    border-radius: 10px; 
+    overflow: hidden; 
+    max-width: 600px; 
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  }
   .ed-code-toolbar { background: #0a120a; padding: 10px 14px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(255,255,255,.06); }
   .ed-dot { width: 12px; height: 12px; border-radius: 50%; }
   .ed-dot-r { background: #ef4444; } .ed-dot-y { background: #f59e0b; } .ed-dot-g { background: #22c55e; }
@@ -39,15 +77,74 @@ const styles = `
   .ed-ln { color: #2d4a2d; margin-right: 1.2rem; user-select: none; }
   .ed-kw { color: #7dd3fc; } .ed-fn { color: #a78bfa; } .ed-cm { color: #4a6a4a; } .ed-nm { color: #22c55e; } .ed-pu { color: #e2e8f0; }
 
+  /* Responsive update to stack elements on mobile */
+
+  @media(max-width:1100px) {
+    .ed-hero { 
+      min-height: 80vh; 
+      display: flex;
+      align-items: flex-start; /* Start content from the top area */
+      padding-top: 80px; /* Space for the header */
+    }
+
+    .ed-hero-content { 
+      flex-direction: column; 
+      text-align: left; /* Changed from center to left */
+      align-items: flex-start; /* Aligns everything to the left */
+      padding: 2rem 7%; 
+      gap: 1.2rem;
+      max-width: 100%;
+    }
+
+    .ed-hero h1 { 
+      font-size: 2.8rem; /* Bold, clear title size */
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+      text-align: left;
+    }
+
+    .ed-hero-sub { 
+      font-size: 0.95rem; /* Better readability */
+      line-height: 1.6;
+      color: rgba(255,255,255,0.7);
+      margin: 0.5rem 0 2rem 0; /* Space above buttons */
+      text-align: left;
+      max-width: 100%; 
+    }
+
+    .ed-hero-actions { 
+      width: 100%;
+      flex-direction: column; /* Stacks buttons like the PCB example */
+      gap: 10px;
+      justify-content: flex-start;
+    }
+
+    .ed-btn-fill, .ed-btn-ghost { 
+      width: 100%; /* Full width buttons for better mobile UX */
+      padding: 15px; 
+      text-align: center;
+      font-size: 0.75rem;
+    }
+
+    .ed-terminal-badge { 
+      font-size: 0.65rem; 
+      padding: 6px 14px; 
+      margin-bottom: 0.5rem;
+      background: rgba(244,83,28,0.2);
+    }
+
+    .ed-code-window { display: none; } /* Kept hidden for clean mobile view */
+  }
+
   /* MARQUEE */
-  .ed-marquee { background: #f4531c; padding: 11px 0; overflow: hidden; white-space: nowrap; }
+  .ed-marquee { background: #111; padding: 11px 0; overflow: hidden; white-space: nowrap; }
   .ed-marquee-track { display: inline-flex; animation: edSlide 32s linear infinite; }
-  .ed-mitem { font-size: .7rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #fff; padding: 0 2rem; }
+  .ed-mitem { font-size: .7rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #f4531c; padding: 0 2rem; }
   .ed-mdot { color: rgba(255,255,255,.4); padding: 0 .3rem; }
   @keyframes edSlide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
   /* SECTIONS */
-  .ed-section { max-width: 1320px; margin: 0 auto; padding: 5.5rem 5%; }
+  .ed-section { max-width: 1320px; margin: 0 auto; padding: 3.5rem 5%; }
   .ed-eyebrow { font-size: .67rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #f4531c; margin-bottom: .75rem; display: flex; align-items: center; gap: 10px; }
   .ed-eyebrow::before { content: ''; width: 26px; height: 2px; background: #f4531c; }
   .ed-stitle { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -1px; line-height: 1.1; margin-bottom: 1.2rem; }
@@ -102,14 +199,15 @@ const styles = `
   .ed-tl-text { font-size: .85rem; color: #666; line-height: 1.7; }
 
   /* CTA */
-.ed-cta { 
-  width: 95%; 
-  margin: 4rem auto 3rem; /* 6rem top gap, 10rem bottom gap to Footer */
-  background: #383737; 
-  border-radius: 0.25rem; 
-  padding: 4.5rem 5%; 
-  text-align: center; 
-}  .ed-cta h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; color: #fff; letter-spacing: -1px; margin-bottom: 1rem; }
+  .ed-cta { 
+    width: 95%; 
+    margin: 4rem auto 3rem; 
+    background: #383737; 
+    border-radius: 0.25rem; 
+    padding: 4.5rem 5%; 
+    text-align: center; 
+  }  
+  .ed-cta h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; color: #fff; letter-spacing: -1px; margin-bottom: 1rem; }
   .ed-cta h2 em { color: #f4531c; font-style: normal; }
   .ed-cta p { color: rgba(255,255,255,.45); font-size: .9rem; max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.7; }
   .ed-cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
@@ -177,24 +275,30 @@ export default function EmbeddedDevelopment() {
   return (
     <div className="ed-page">
       <style>{styles}</style>
-        <Header/>
+      <Header/>
 
-      {/* HERO */}
+      {/* HERO SECTION UPDATED */}
       <div className="ed-hero">
         <div className="ed-hero-bg">
           <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=1400&q=80" alt="Embedded Systems" />
         </div>
         <div className="ed-hero-overlay" />
+        
         <div className="ed-hero-content">
-          <div className="ed-terminal-badge">
-            <span>$</span> embedded --init project <div className="ed-cursor" />
+          {/* LEFT COLUMN: TEXT */}
+          <div className="ed-hero-text-block">
+            <div className="ed-terminal-badge">
+              <span>$</span> embedded --init project <div className="ed-cursor" />
+            </div>
+            <h1>Embedded<br /><em>Development</em></h1>
+            <p className="ed-hero-sub">Bare-metal firmware, RTOS integration, and Linux BSP development — from concept to deployed hardware, we own the full stack.</p>
+            <div className="ed-hero-actions">
+              <button className="ed-btn-fill">Start a Project &rsaquo;</button>
+              <button className="ed-btn-ghost">See Our Stack</button>
+            </div>
           </div>
-          <h1>Embedded<br /><em>Development</em></h1>
-          <p className="ed-hero-sub">Bare-metal firmware, RTOS integration, and Linux BSP development — from concept to deployed hardware, we own the full stack.</p>
-          <div className="ed-hero-actions">
-            <button className="ed-btn-fill">Start a Project &rsaquo;</button>
-            <button className="ed-btn-ghost">See Our Stack</button>
-          </div>
+
+          {/* RIGHT COLUMN: CODE WINDOW */}
           <div className="ed-code-window">
             <div className="ed-code-toolbar">
               <div className="ed-dot ed-dot-r" /><div className="ed-dot ed-dot-y" /><div className="ed-dot ed-dot-g" />
@@ -316,7 +420,7 @@ export default function EmbeddedDevelopment() {
           <button className="ed-btn-ghost">View Past Work</button>
         </div>
       </div>
-        <Footer />
+      <Footer />
     </div>
   );
 }
