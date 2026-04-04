@@ -260,37 +260,76 @@ const styles = `
 `;
 
 const serviceTags = [
-  "⚙️ OpenCPU Dev", "📡 OpenWRT Build", "🔄 OTA Updates", "🔒 Secure Boot",
-  "☁️ MQTT / Cloud", "📶 LTE / 5G", "🧩 BSP Porting", "🛡️ Security Hardening",
-  "🌐 Custom Router UI", "🧪 RF Validation", "📟 AT Commands", "🔧 Kernel Patching",
+  "🌐 OpenWRT Linux", "📡 OpenCPU SDK", "🔒 Secure Gateway", "🔄 Delta OTA",
+  "☁️ AWS/Azure IoT", "📶 4G/5G Modules", "⚙️ LuCI Custom UI", "🛡️ IMEI Binding",
+  "📟 AT Command Logic", "🔧 Kernel Patching", "⚡ Power Optimization", "🧩 BSP Integration",
 ];
 
 const serviceCards = [
-  { ico: "🧩", title: "Module Porting & BSP", desc: "Kernel driver porting, bootloader customization, and device tree configuration for new hardware targets.", tag: "Yocto · Buildroot · LEDE" },
-  { ico: "📶", title: "LTE / 5G Integration", desc: "APN config, PPP/QMI/MBIM stack, carrier aggregation, and SIM management for M2M and IoT deployments.", tag: "4G · 5G NR · NB-IoT" },
-  { ico: "🌐", title: "Custom Router Firmware", desc: "Branded OpenWRT builds with custom LuCI, VPN tunnels, traffic shaping, VLAN management, and captive portals.", tag: "OpenWRT · DD-WRT · GL.iNet" },
-  { ico: "☁️", title: "Cloud & MQTT Bridge", desc: "Firmware-level MQTT, CoAP, and HTTP/2 clients for IoT pipelines — AWS IoT, Azure Hub, and custom broker support.", tag: "AWS · Azure · Custom" },
-  { ico: "🛡️", title: "Secure Boot & Signing", desc: "Root-of-trust, U-Boot secure boot, code-signing workflows, and certificate provisioning for production batches.", tag: "TPM · HSM · PKI" },
-  { ico: "🧪", title: "Testing & Validation", desc: "Automated regression, RF performance, stress testing, and certification prep for CE/FCC compliance.", tag: "CI/CD · HIL · RF Testing" },
+  { 
+    ico: "🌐", title: "Custom OpenWRT Builds", 
+    desc: "Target-specific builds for MediaTek/Qualcomm SoCs with custom LuCI web interfaces, VLAN, and VPN (WireGuard/OpenVPN) support.", 
+    tag: "Gateways · Routers · Firewalls" 
+  },
+  { 
+    ico: "📲", title: "OpenCPU App Development", 
+    desc: "Run firmware directly on cellular modules (Neoway/Quectel/SIMCom) to eliminate external MCUs, reducing cost and PCB space.", 
+    tag: "Compact · Low Power · Cost-Effective" 
+  },
+  { 
+    ico: "☁️", title: "Cloud & MQTT Integration", 
+    desc: "Seamless data sync with AWS IoT, Azure, or custom dashboards using MQTT, HTTPS, and REST APIs directly from the modem.", 
+    tag: "AWS · Azure · Custom MQTT" 
+  },
+  { 
+    ico: "🔌", title: "Peripheral & Driver Dev", 
+    desc: "Hardware driver integration for UART, I2C, SPI, Modbus TCP/RTU, and GPIO-based automation logic for industrial use.", 
+    tag: "Modbus · Sensors · I/O Control" 
+  },
+  { 
+    ico: "🛡️", title: "Security & Remote Mgmt", 
+    desc: "Implementation of secure boot, IMEI/ICCID binding, watchdog timers, and remote diagnostics for high-reliability deployments.", 
+    tag: "Hardened · Remote Debug · Watchdog" 
+  },
+  { 
+    ico: "🔄", title: "FOTA & Update Systems", 
+    desc: "Full Over-the-Air (OTA) update infrastructure with fallback logic to ensure your fleet is always running the latest secure firmware.", 
+    tag: "Reliable · Remote Upgrade · Rollback" 
+  },
 ];
 
 const steps = [
-  { n: "01", t: "Requirements & Hardware Audit", d: "We analyze your target SoC, connectivity needs, and use case — mapping the right SDK and build system." },
-  { n: "02", t: "Toolchain & CI Environment Setup", d: "Cross-compilation toolchain, kernel patching, package feeds, and CI pipeline — a solid foundation before app code." },
-  { n: "03", t: "Driver & Middleware Development", d: "Custom kernel drivers, peripheral middleware, and protocol stacks — GPS, cellular, ethernet, Wi-Fi, and more." },
-  { n: "04", t: "Application Layer & UI", d: "OpenCPU business logic or OpenWRT LuCI panels — user-facing functionality on a stable firmware base." },
-  { n: "05", t: "Validation, Sign-off & OTA Handover", d: "End-to-end testing, signed image generation, OTA infrastructure, and full documentation delivered to your team." },
+  { 
+    n: "01", t: "Hardware & SDK Audit", 
+    d: "Selection of the right SoC (MediaTek/Qualcomm) or Cellular Module (Neoway/Quectel) based on your networking and power needs." 
+  },
+  { 
+    n: "02", t: "BSP & Environment Setup", 
+    d: "Configuring the target-specific Build System, toolchains, kernel-level patches, and initial board support package (BSP)." 
+  },
+  { 
+    n: "03", t: "Core Feature Implementation", 
+    d: "Developing custom network stacks for OpenWRT or sensor-interfacing logic for OpenCPU application firmware." 
+  },
+  { 
+    n: "04", t: "UI & Integration Layer", 
+    d: "Building LuCI web pages for router management or cloud-sync protocols (MQTT/HTTPS) for cellular edge devices." 
+  },
+  { 
+    n: "05", t: "Validation & FOTA Handover", 
+    d: "Rigorous testing of watchdog logic, power sleep modes, and delivery of flashable binaries (.BIN/.IMG) with OTA support." 
+  },
 ];
 
 const modules = [
-  { cat: "Cellular", name: "Quectel EC21/EC25", sub: "LTE Cat 1/4 modules" },
-  { cat: "Cellular", name: "SIMCom SIM7600", sub: "LTE-A global band" },
-  { cat: "Cellular", name: "Quectel RG500Q", sub: "5G NR Sub-6GHz" },
-  { cat: "Router", name: "MT7621A", sub: "OpenWRT mainline" },
-  { cat: "Router", name: "IPQ8074/IPQ6018", sub: "Qualcomm Wi-Fi 6" },
-  { cat: "Router", name: "GL.iNet MT300/AR750", sub: "Travel router series" },
-  { cat: "IoT", name: "ESP32 / nRF52840", sub: "BLE + Wi-Fi edge" },
-  { cat: "IoT", name: "STM32MP157", sub: "MPU Linux capable" },
+  { cat: "Cellular", name: "Neoway N58 / N706B", sub: "OpenCPU specialized" },
+  { cat: "Cellular", name: "Quectel EC200U / BG96", sub: "SDK based development" },
+  { cat: "Cellular", name: "SIMCom SIM7600 / 800", sub: "Lua & C development" },
+  { cat: "OpenWRT", name: "MediaTek MT7621/7628", sub: "Mainline support" },
+  { cat: "OpenWRT", name: "Qualcomm IPQ807x/60xx", sub: "Wi-Fi 6 Enterprise" },
+  { cat: "Hardware", name: "GL.iNet / Teltonika", sub: "Industrial Gateway customization" },
+  { cat: "Storage", name: "SPI NAND / eMMC", sub: "Custom memory mapping" },
+  { cat: "Modems", name: "LTE Cat 4 / 5G NR", sub: "High-speed backhaul" },
 ];
 
 export default function OpenCPUOpenWRT() {
@@ -307,7 +346,7 @@ export default function OpenCPUOpenWRT() {
           <div>
             <div className="fw-tag"><span className="fw-tag-dot" /> Firmware Engineering</div>
             <h1>Open<em>CPU</em> &amp;<br />Open<em>WRT</em></h1>
-            <p className="fw-hero-p">Custom firmware development for embedded modules — modem integration, Linux kernel configuration, full OpenWRT builds, and cloud-ready deployments.</p>
+            <p className="fw-hero-p">Powering secure gateways, IoT hubs, and cellular-edge devices with custom Linux builds and MCU-less cellular firmware.</p>
             <div className="fw-btns">
               <button className="btn-org">Get a Quote ›</button>
               <button className="btn-ghost-w">View Capabilities</button>
@@ -315,12 +354,12 @@ export default function OpenCPUOpenWRT() {
           </div>
           <div className="fw-stats">
             <div className="fw-stat-row">
-              <div className="fw-stat-box"><div className="fw-stat-n">200+</div><div className="fw-stat-l">Firmware Builds</div></div>
-              <div className="fw-stat-box"><div className="fw-stat-n">40+</div><div className="fw-stat-l">Module Types</div></div>
+              <div className="fw-stat-box"><div className="fw-stat-n">50+</div><div className="fw-stat-l"> OpenWRT Projects</div></div>
+              <div className="fw-stat-box"><div className="fw-stat-n">30+</div><div className="fw-stat-l">Cellular Modules</div></div>
             </div>
             <div className="fw-stat-row">
-              <div className="fw-stat-box"><div className="fw-stat-n">4G/5G</div><div className="fw-stat-l">Modem Support</div></div>
-              <div className="fw-stat-box"><div className="fw-stat-n">OTA</div><div className="fw-stat-l">Update Ready</div></div>
+              <div className="fw-stat-box"><div className="fw-stat-n">LTE/5G</div><div className="fw-stat-l">Built-in Connectivity</div></div>
+              <div className="fw-stat-box"><div className="fw-stat-n">ZERO</div><div className="fw-stat-l">External MCU Cost</div></div>
             </div>
           </div>
         </div>

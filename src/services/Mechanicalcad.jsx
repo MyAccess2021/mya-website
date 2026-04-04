@@ -193,9 +193,9 @@ padding: 6vh 4% 6vh 7%;          display: flex; flex-direction: column; justify-
               <h1 className="mcad-hero-title">
                 Mechanical
                 <span className="line2">CAD Design</span>
-                <span className="line3">Precision Engineered Enclosures & Structures</span>
+                <span className="line3">From Concept to Manufacturing – Precision in Every Detail</span>
               </h1>
-              <p className="mcad-hero-desc">From concept sketches to production-ready 3D models and technical drawings. Our mechanical engineers design enclosures, brackets, assemblies, and custom hardware.</p>
+              <p className="mcad-hero-desc">High-precision parametric models, assembly designs, and production-ready hardware engineering. We bridge the gap between your PCB layout and a functional physical product.</p>
               <div className="mcad-hero-actions">
                 <button className="mcad-btn-primary">Start Your Design</button>
                 <button className="mcad-btn-outline">View Portfolio</button>
@@ -231,14 +231,14 @@ padding: 6vh 4% 6vh 7%;          display: flex; flex-direction: column; justify-
           <p className="mcad-section-sub">Our engineers are certified in industry-standard CAD platforms, so we work in your preferred format.</p>
           <div className="mcad-sw-grid">
             {[
-              { logo: 'SW', name: 'SolidWorks', type: '3D Parametric Modeling' },
-              { logo: 'AC', name: 'AutoCAD', type: '2D Drafting & Detailing' },
-              { logo: 'FC', name: 'Fusion 360', type: 'Integrated CAD/CAM/FEA' },
-              { logo: 'INV', name: 'Inventor', type: 'Assembly & Motion Simulation' },
-              { logo: 'CR', name: 'Creo', type: 'Complex Surface Modeling' },
+              { logo: 'F360', name: 'Fusion 360', type: 'Cloud-Based CAD/CAM/CAE' },
+  { logo: 'SW', name: 'SolidWorks', type: 'Professional Parametric Modeling' },
+  { logo: 'ACAD', name: 'AutoCAD', type: '2D Technical Documentation' },
+  { logo: 'FC', name: 'FreeCAD', type: 'Open-Source Engineering' },
+  { logo: 'OS', name: 'Onshape', type: 'Collaborative Browser-CAD' },
+  { logo: 'BOM', name: 'BOM Expert', type: 'Material List Management' },
               { logo: 'FBX', name: 'FreeCAD', type: 'Open-source Parametric' },
-              { logo: 'RH', name: 'Rhino 3D', type: 'NURBS & Freeform Design' },
-              { logo: 'KiC', name: 'KiCad MCAD', type: 'PCB-MCAD Co-Design' },
+              { logo: 'INV', name: 'Inventor', type: 'Assembly & Motion Simulation' },
             ].map((sw, i) => (
               <div key={i} className="mcad-sw-card">
                 <div className="mcad-sw-logo">{sw.logo}</div>
@@ -256,13 +256,13 @@ padding: 6vh 4% 6vh 7%;          display: flex; flex-direction: column; justify-
           <p className="mcad-section-sub">Comprehensive design services covering every aspect of your product's physical form.</p>
           <div className="mcad-svc-grid">
             {[
-              { tag: 'Enclosures', title: 'Electronics Enclosure Design', img: 'https://images.unsplash.com/photo-1555664424-778a1e5e1b48?q=80&w=1470', desc: 'Custom enclosures designed around your PCB — including cutouts, mounting bosses, and IP/NEMA rating compliance.' },
-              { tag: 'Assemblies', title: 'Mechanical Assembly & BOM', img: 'https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?q=80&w=1470', desc: 'Multi-component assembly models with full bill of materials, tolerance stacks, and interference analysis.' },
-              { tag: 'Documentation', title: 'Technical Drawings & GD&T',   img: 'https://images.unsplash.com/photo-1532619187608-e5375cab36aa?auto=format&fit=crop&w=1470&q=80'
-, desc: 'Manufacturing-ready 2D drawings with full GD&T, tolerances, surface finish callouts, and material specs.' },
-              { tag: 'Sheet Metal', title: 'Sheet Metal Design', img: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1470', desc: 'DFM-optimized sheet metal designs including bend allowances, flat patterns, and laser cutting optimization.' },
-              { tag: 'Simulation', title: 'FEA & Stress Analysis', img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1470', desc: 'Finite element analysis to validate structural integrity under load, thermal stress, and vibration conditions.' },
-              { tag: 'Reverse Engineering', title: 'Reverse Engineering', img: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=1470', desc: 'Convert physical parts to accurate parametric CAD models using 3D scanning and measurement data.' },
+              { tag: 'Modeling', title: '3D CAD & Assembly', img: 'https://images.unsplash.com/photo-1555664424-778a1e5e1b48?q=80&w=1470', desc: 'High-precision parametric models and multi-part assemblies with motion constraints for prototyping and production.' },
+              { tag: 'Electronics', title: 'Enclosure Design', img: 'https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?q=80&w=1470', desc: 'PCB-based integration featuring IP-rated protection, thermal optimization, snap-fits, and screw bosses.' },
+              { tag: 'Optimization', title: 'Design for Manufacture (DFM)',   img: 'https://images.unsplash.com/photo-1532619187608-e5375cab36aa?auto=format&fit=crop&w=1470&q=80'
+, desc: 'Parts optimized for injection molding, 3D printing, sheet metal, and CNC machining to reduce production costs.' },
+              { tag: 'Engineering', title: 'Reverse Engineering', img: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1470', desc: 'Recreating lost designs from existing physical parts with accurate mechanical tolerances and assembly corrections.' },
+              { tag: 'Documentation', title: '2D Technical Drawing', img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1470', desc: 'Production-ready documentation including GD&T (Geometric Dimensioning and Tolerancing) and exploded views.' },
+              { tag: 'Validation', title: 'Simulation & Analysis', img: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=1470', desc: 'Stress, thermal, and fitment simulations including tolerance stack-up analysis for perfect PCB-component alignment.' },
             ].map((svc, i) => (
               <div key={i} className="mcad-svc-card">
                 <img className="mcad-svc-img" src={svc.img} alt={svc.title} />
@@ -343,11 +343,11 @@ padding: 6vh 4% 6vh 7%;          display: flex; flex-direction: column; justify-
           <p className="mcad-section-sub" style={{ color: '#666' }}>Every project includes native CAD files plus neutral exchange formats for manufacturing.</p>
           <div className="mcad-formats-grid">
             {[
-              { ext: '.STEP', name: 'Universal 3D Exchange' },
-              { ext: '.IGES', name: 'Surface & Solid Transfer' },
-              { ext: '.DXF', name: 'Flat Patterns & 2D' },
-              { ext: '.PDF', name: 'Technical Drawings' },
+              { ext: '.STEP', name: '.IGES (Universal 3D)' },
               { ext: '.STL', name: '3D Printing Ready' },
+              { ext: '.DXF', name: '.DWG (Laser Cut & 2D)' },
+              { ext: '.PDF', name: 'Technical Drawings' },
+              { ext: '.BOM', name: 'Material Lists' },
               { ext: '.SAT', name: 'ACIS Solid Modeling' },
             ].map((fmt, i) => (
               <div key={i} className="mcad-fmt-card">
@@ -365,9 +365,9 @@ padding: 6vh 4% 6vh 7%;          display: flex; flex-direction: column; justify-
           <p className="mcad-section-sub">A snapshot of recent mechanical design projects across industries.</p>
           <div className="mcad-port-grid">
             {[
-              { industry: 'IoT / Consumer', title: 'Industrial IoT Gateway Enclosure', img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1470', desc: 'DIN-rail mountable IP65 enclosure for a gateway PCB. Sheet metal finish.', tags: ['Sheet Metal','IP65','DIN Rail'] },
-              { industry: 'Medical', title: 'Handheld Medical Device Housing', img: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=1470', desc: 'Ergonomic injection-molded housing for a portable diagnostic device.', tags: ['Injection Mold','Medical','Ergonomics'] },
-              { industry: 'Robotics', title: 'Autonomous Robot Chassis', img: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1470', desc: 'Lightweight aluminum chassis with motor mounts and wiring channels.', tags: ['Aluminum','Assembly','FEA Validated'] },
+              { industry: 'IoT Enclosuresr', title: 'Smart devices and gateway housings', img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1470', desc: 'DIN-rail mountable IP65 enclosure for a gateway PCB. Sheet metal finish.', tags: ['Sheet Metal','IP65','DIN Rail'] },
+              { industry: 'Lab Equipment', title: 'Instrumentation and medical device cases.', img: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=1470', desc: 'Ergonomic injection-molded housing for a portable diagnostic device.', tags: ['Injection Mold','Medical','Ergonomics'] },
+              { industry: 'EV Subassemblies', title: 'Battery packs and controller mounts', img: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1470', desc: 'Lightweight aluminum chassis with motor mounts and wiring channels.', tags: ['Aluminum','Assembly','FEA Validated'] },
             ].map((port, i) => (
               <div key={i} className="mcad-port-card">
                 <img className="mcad-port-img" src={port.img} alt={port.title} />

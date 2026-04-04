@@ -211,8 +211,12 @@ const supplyCards = [
   { ico:"⚡", bg:"rgba(244,83,28,0.1)", t:"Spot Buy & Emergency", s:"24–48 hour turnaround for critical shortages — NPI support and production floor emergencies covered", badge:"48hr", cls:"badge-o" },
 ];
 
-const serviceTags = ["🌐 Authorized Sourcing","🔄 Alternate Parts","🛡️ Counterfeit Screening","📋 BOM Management","⚡ Spot Buy","🔎 Obsolete Parts","📦 Kitting Services","🚚 DDP Delivery","🧪 Incoming QC","📊 Price Benchmarking","🔗 Supply Chain Risk","🤝 OEM Allocation"];
-
+const serviceTags = [
+  "🌐 Authorized Sourcing", "🔄 Alternate Parts", "🛡️ Counterfeit Screening", 
+  "📋 BOM Management", "⚡ Spot Buy", "🔎 Obsolete Parts", 
+  "📦 Kitting Services", "🚚 DDP Delivery", "🧪 Incoming QC", 
+  "📊 Price Benchmarking", "🔗 Supply Chain Risk", "🤝 OEM Allocation"
+];
 const flowSteps = [
   { ico:"📋", label:"BOM Upload" }, { ico:"🔍", label:"Part Review" },
   { ico:"💱", label:"Multi-Source Quote" }, { ico:"✅", label:"Approval & PO" },
@@ -229,14 +233,14 @@ const bomRows = [
 ];
 
 const catTiles = [
-  { ico:"🖥️", name:"Microcontrollers & SoCs", sub:"STM32 · ESP · NXP · TI · FPGA" },
-  { ico:"📻", name:"Wireless Modules", sub:"Wi-Fi · BLE · LoRa · NB-IoT" },
-  { ico:"⚡", name:"Power Management", sub:"PMICs · LDOs · Buck/Boost" },
+  { ico:"🖥️", name:"Microcontrollers & SoCs", sub:"STM32 · ESP32 · NXP · TI · FPGA" },
+  { ico:"📻", name:"Wireless Modules", sub:"Wi-Fi · BLE · LoRa · NB-IoT · 4G/5G" },
+  { ico:"⚡", name:"Power Management", sub:"PMICs · LDOs · Buck/Boost · Battery ICs" },
   { ico:"💾", name:"Memory & Storage", sub:"NAND · NOR · DRAM · eMMC" },
   { ico:"🔌", name:"Connectors", sub:"Molex · TE · Amphenol · Hirose" },
   { ico:"📡", name:"RF & Antenna", sub:"PA · LNA · Filters · RF Switches" },
-  { ico:"👁️", name:"Sensors", sub:"IMU · Pressure · Temperature" },
-  { ico:"🔋", name:"Passives", sub:"R · C · L · Crystal · Fuse" },
+  { ico:"👁️", name:"Sensors", sub:"IMU · Pressure · Temperature · Optical" },
+  { ico:"🔋", name:"Passives", sub:"Resistors · Capacitors · Inductors · Fuses" },
 ];
 
 const brands = ["Texas Instruments","STMicroelectronics","NXP","Infineon","Microchip","Nordic Semi","Renesas","Espressif","Qualcomm","Broadcom","Murata","TDK","Vishay","Yageo","TE Connectivity","Molex"];
@@ -259,7 +263,7 @@ export default function ComponentProcurement() {
         <div className="cp-hero-left">
           <div className="cp-eyebrow">Component Procurement Services</div>
           <h1>Source.<br /><em>Smart.</em><br />Fast.</h1>
-          <p>End-to-end electronic component procurement — from BOM review and sourcing strategy to quality inspection and on-time delivery.</p>
+          <p>End-to-end electronic component procurement — from BOM review and sourcing strategy to quality inspection and on-time delivery across India and global markets.</p>
           <div className="cp-hero-btns">
             <button className="cp-btn-dark">Upload BOM ›</button>
             <button className="cp-btn-ghost">Talk to Our Team</button>

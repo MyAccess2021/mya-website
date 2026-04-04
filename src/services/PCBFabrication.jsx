@@ -242,15 +242,18 @@ const styles = `
   }
 `;
 
-const tickerItems = ["Min Trace 3mil","HDI Available","ENIG / HASL / OSP","Impedance Control","Flex & Rigid-Flex","IPC Class II / III","Blind & Buried Vias","FR4 / Rogers / Aluminium"];
-
+const tickerItems = [
+  "Gerber RS-274X", "3-5 Day Express", "0.2mm Min Drill", 
+  "ENIG / HASL / OSP", "Impedance Control", "FR-4 / Rogers / Polyimide", 
+  "IPC-A-600 Class 3", "Flying Probe Testing"
+];
 const capCards = [
-  { n:"01", ico:"🔬", t:"HDI & Microvia", d:"Laser-drilled microvias as small as 0.1mm, blind/buried vias, and via-in-pad for BGA fanout.", b:"Any-Layer HDI" },
-  { n:"02", ico:"📐", t:"Impedance Control", d:"Controlled impedance for RF, high-speed digital, and differential pairs — ±10% standard, ±5% premium.", b:"±5% Tolerance" },
-  { n:"03", ico:"🌊", t:"Flex & Rigid-Flex", d:"Polyimide flex circuits and rigid-flex hybrid boards for wearables, aerospace, and space-constrained designs.", b:"PI / Polyester" },
-  { n:"04", ico:"🔥", t:"Metal Core (MCPCB)", d:"Aluminium and copper core boards for high-power LED, power electronics, and thermal management.", b:"LED · Power" },
-  { n:"05", ico:"📡", t:"RF / High-Frequency", d:"Rogers, Taconic, and Isola laminates for microwave, mmWave, and RF antenna boards up to 77 GHz.", b:"Rogers 4350B" },
-  { n:"06", ico:"✅", t:"IPC Class III", d:"Military, medical, and aerospace-grade inspection — AOI, X-ray BGA, flying probe, and ICT test ready.", b:"AOI · X-Ray · FPT" },
+  { n:"01", ico:"🚀", t:"Prototype & Express", d:"Rapid iteration with 3–5 day lead times. Small batches (1-10 units) up to mid-volume production runs.", b:"3-Day Lead Time" },
+  { n:"02", ico:"📐", t:"Controlled Impedance", d:"Precision stack-ups for high-speed digital and RF designs with impedance test reports on request.", b:"±5% Tolerance" },
+  { n:"03", ico:"💎", t:"Surface Finishes", d:"Wide range of finishes: HASL Lead-Free, ENIG (Gold), OSP, Immersion Silver, and Hard Gold for connectors.", b:"ENIG / HASL / OSP" },
+  { n:"04", ico:"⚡", t:"Advanced Drilling", d:"Support for blind & buried vias, microvias, and castellated holes for modular designs.", b:"Microvia · 0.2mm" },
+  { n:"05", ico:"🛡️", t:"IPC Quality Assurance", d:"Adherence to IPC-A-600 Class 2 and Class 3. Includes AOI, Flying Probe, and X-Ray BGA inspection.", b:"Class 2 & 3" },
+  { n:"06", ico:"📦", t:"Flexible Materials", d:"Polyimide-based Flex and Rigid-Flex fabrication for wearables and aerospace-grade constraints.", b:"PI / Rogers / FR4" },
 ];
 
 const layers = [
@@ -273,8 +276,12 @@ const finishes = [
   { color:"#f4e4ba", name:"Immersion Tin" }, { color:"#ffd700", name:"Hard Gold" },
 ];
 
-const serviceTags = ["🔬 HDI & Microvia","📐 Impedance Control","🌊 Flex / Rigid-Flex","🔥 Metal Core","📡 RF Boards","✅ IPC Class III","🖼️ Custom Stackup","🚀 3-Day Express","🏭 Local India","🌐 Global Fabs","🧪 AOI Inspection","📦 DDP Delivery"];
-
+const serviceTags = [
+  "🚀 3-Day Express", "📦 1–1000+ Units", "📐 Controlled Impedance", 
+  "🌊 Flex / Rigid-Flex", "🔥 High TG180", "🔬 0.2mm Min Via", 
+  "✅ IPC Class 2/3", "🧪 Flying Probe Test", "🏭 Local India Fabs", 
+  "🌐 Global Tier-1 Fabs", "🛡️ ISO 9001", "🚚 DDP Shipping"
+];
 export default function PCBFabrication() {
   const [qty, setQty] = useState("");
   const doubled = [...tickerItems, ...tickerItems];
@@ -298,15 +305,15 @@ export default function PCBFabrication() {
           <div>
             <div className="pcb-hero-pill"><span className="pcb-pill-dot" /> Fabrication Live — 3–5 Day Turnaround Available</div>
             <h1>PCB <em>Fabri</em>cation</h1>
-            <p className="pcb-hero-p">Precision PCB manufacturing from single prototypes to production volumes — local speed, global scale, uncompromising quality at every layer.</p>
+            <p className="pcb-hero-p">From Prototype to Production – Reliable Boards Built to Your Exact Specifications. Local speed with Global Tier-1 quality standards.</p>
             <div className="pcb-btns">
               <button className="btn-org">Upload Gerber Files ›</button>
               <button className="btn-ghost-w">View Capabilities</button>
             </div>
           </div>
           <div className="pcb-hero-meta">
-            <div className="pcb-meta-stat"><div className="pcb-meta-n">1–<em>32</em></div><div className="pcb-meta-l">Layer Support</div></div>
-            <div className="pcb-meta-stat"><div className="pcb-meta-n"><em>3</em> Day</div><div className="pcb-meta-l">Express Build</div></div>
+            <div className="pcb-meta-stat"><div className="pcb-meta-n">1–<em>32</em></div><div className="pcb-meta-l">Layers</div></div>
+            <div className="pcb-meta-stat"><div className="pcb-meta-n"><em>3–5</em> Day</div><div className="pcb-meta-l">Lead Time</div></div>
             <div className="pcb-meta-stat"><div className="pcb-meta-n"><em>98</em>%</div><div className="pcb-meta-l">First-Pass Yield</div></div>
           </div>
         </div>
@@ -354,8 +361,8 @@ export default function PCBFabrication() {
               <div className="pcb-spec-table">
                 <div className="pcb-spec-row"><div className="pcb-spec-cell hdr">Board Specifications</div></div>
                 {[
-                  ["Layer Count","1 – 32 layers","Board Thickness","0.4 – 6.0 mm"],
-                  ["Min Trace / Space","3 mil / 3 mil","Min Drill Size","0.1 mm laser"],
+                  ["Layer Count","1 – 32 layers","Board Thickness","0.4 – 2.0 mm (Custom up to 6.0mm)"],
+                  ["Min Trace / Space","3 mil / 3 mil","Min Drill Size","0.2 mm (Standard) / 0.1 mm (Laser)"],
                   ["Max Board Size","500 × 600 mm","Copper Weight","0.5 – 6 oz"],
                 ].map((row,i)=>(
                   <div key={i} className="pcb-spec-row">
@@ -467,7 +474,7 @@ export default function PCBFabrication() {
             <div className="pcb-form-title">Quick Quote</div>
             <div className="pcb-field"><label>Layers</label><select><option>1 Layer</option><option>2 Layers</option><option>4 Layers</option><option>6+ Layers</option></select></div>
             <div className="pcb-field"><label>Quantity</label><input type="text" placeholder="e.g. 10 pcs" value={qty} onChange={e=>setQty(e.target.value)} /></div>
-            <div className="pcb-field"><label>Material</label><select><option>FR4 TG150</option><option>FR4 TG170</option><option>Rogers</option><option>Aluminium</option></select></div>
+            <div className="pcb-field"><label>Material</label><select><option>FR4 TG135</option><option>FR4 TG170</option><option>Rogers</option><option>Polyimide (Flex)</option></select></div>
             <div className="pcb-field"><label>Surface Finish</label><select><option>ENIG</option><option>HASL Lead-Free</option><option>OSP</option><option>Immersion Silver</option></select></div>
             <button className="pcb-submit">Get Quote ›</button>
           </div>
