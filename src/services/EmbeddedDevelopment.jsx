@@ -224,33 +224,34 @@ const styles = `
   }
 `;
 
-const marqueeItems = ["FreeRTOS","Zephyr","Embedded Linux","Yocto","STM32","BLE 5.3","LoRaWAN","TrustZone","Bare-Metal","RTOS"];
+const marqueeItems = ["STM32","ESP32","ARM Cortex","FreeRTOS","MQTT","MODBUS","LoRaWAN","CANOpen", 
+  "OpenWRT", "Edge AI", "OTA Updates", "Bare-Metal"];
 
 const platforms = [
-  { icon:"⚙️", name:"ARM Cortex-M / A", desc:"Bare-metal and RTOS firmware on STM32, NXP i.MX, Nordic nRF, and Microchip SAMD families.", chips:["STM32","nRF52","i.MX RT","RP2040"] },
-  { icon:"🐧", name:"Embedded Linux", desc:"Custom Yocto/Buildroot BSPs, device tree authoring, kernel driver development, and OTA update frameworks.", chips:["Yocto","Buildroot","Pi CM4","i.MX8"] },
-  { icon:"📡", name:"Connectivity & IoT", desc:"BLE, Wi-Fi, LoRa, LTE-M, and Zigbee stack integration with cloud connectivity to AWS IoT, Azure, and MQTT.", chips:["BLE 5.3","LoRaWAN","LTE-M","Zigbee"] },
-  { icon:"🔄", name:"RTOS & Scheduling", desc:"FreeRTOS, Zephyr, and ThreadX integration with real-time task design, priority inversion analysis, and profiling.", chips:["FreeRTOS","Zephyr","ThreadX"] },
-  { icon:"🔌", name:"Peripheral & Driver Dev", desc:"Custom drivers for SPI, I2C, UART, USB, CAN, and custom bus protocols with register-level HAL abstraction.", chips:["USB HID","CAN FD","MIPI CSI"] },
-  { icon:"🛡️", name:"Secure Firmware", desc:"TrustZone, secure boot, firmware signing, OTA with rollback, and FIPS-compliant crypto for safety-critical apps.", chips:["TrustZone","MCUBoot","wolfSSL"] },
+  { icon:"🎯", name:"Microcontrollers (MCU)", desc:"Expertise in 8-bit and 32-bit architectures including STM32, ESP32, AVR, MSP430, and PIC.", chips:["STM32", "ESP32", "ARM", "AVR"] },
+  { icon:"🧠", name:"SoCs & SBCs", desc:"High-performance development on Raspberry Pi, NVIDIA Jetson, and BeagleBone for complex computing.", chips:["RPi 4/5", "Jetson", "BeagleBone"] },
+  { icon:"📶", name:"Connectivity Stacks", desc:"Seamless integration of I2C, SPI, UART, RS-485, CAN, USB, and wireless BLE/GSM/LTE protocols.", chips:["RS-485", "LTE", "BLE", "CAN"] },
+  { icon:"🌐", name:"OpenCPU / OpenWRT", desc:"Custom services on Linux-based OpenWRT and cellular modules like Neoway and Quectel.", chips:["N58", "N706B", "Quectel"] },
+  { icon:"🤖", name:"Edge AI", desc:"Real-time data processing and ML inference at the edge for industrial and robotic use cases.", chips:["TensorFlow", "Edge Impulse"] },
+  { icon:"🛡️", name:"Testing & QA", desc:"Rigorous debugging using Logic Analyzers, JTAG/SWD, and thermal/stress testing protocols.", chips:["JTAG", "Logic Pro", "Unit Test"] },
 ];
 
 const svcCols = [
   {
     title:"Firmware",
     items:[
-      { title:"Bare-Metal Development", desc:"Startup code, linker scripts, IRQ tables, and hardware abstraction without OS overhead" },
-      { title:"RTOS Design & Porting", desc:"Task decomposition, memory footprint optimization, and RTOS migration between families" },
-      { title:"Bootloader Development", desc:"Custom bootloaders with signed OTA, dual-bank failover, and factory reset support" },
+      { title:"Custom Firmware Development", desc:"Bare-metal, HAL/LL, and RTOS (FreeRTOS/Zephyr) development for mission-critical reliability." },
+      { title:"Protocol Development", desc:"Custom UART/I2C protocols, MODBUS, MQTT, and secure TCP/IP/WebSocket communication." },
+      { title:"Driver Integration", desc:"Low-level drivers for sensors, flash memory, LCDs, and industrial communication modules." },
       { title:"Power Management", desc:"Sleep mode state machines, dynamic voltage scaling, and sub-µA idle optimization" },
     ]
   },
   {
     title:"Systems",
     items:[
-      { title:"Linux BSP & Kernel", desc:"Device tree authoring, module development, and platform bring-up on custom hardware" },
-      { title:"Protocol Stack Integration", desc:"Modbus, CANopen, PROFIBUS, Ethernet/IP for industrial automation applications" },
-      { title:"Sensor Fusion & DSP", desc:"IMU Kalman filtering, ADC signal chains, FFT analysis, and ML inference on edge" },
+      { title:"Cellular & Gateway Design", desc:"OpenCPU development for IoT gateways and cellular-connected industrial hardware." },
+      { title:"Real-Time Processing", desc:"Optimized scheduling and interrupt handling for high-speed industrial data acquisition." },
+      { title:"Maintenance & OTA", desc:"Bootloader development and secure Over-the-Air (OTA) update integration for remote fleets." },
       { title:"Testing & CI/CD", desc:"Hardware-in-the-loop testing, unit testing with CppUTest, and automated regression pipelines" },
     ]
   }
@@ -264,11 +265,11 @@ const statBlocks = [
 ];
 
 const timeline = [
-  { n:"01", title:"Requirements & Architecture", text:"Define hardware interfaces, timing constraints, memory budget, and protocol requirements before writing a single line of code." },
-  { n:"02", title:"Hardware Bring-Up", text:"Bring up the board, validate power rails, configure clocks, and establish minimal UART/JTAG debug connectivity." },
-  { n:"03", title:"Driver & Middleware Development", text:"Layer-by-layer implementation: HAL drivers → middleware → application logic with unit tests at each layer." },
-  { n:"04", title:"Integration & HIL Testing", text:"Hardware-in-the-loop test benches validate real-world stimuli, edge cases, and failure modes on actual silicon." },
-  { n:"05", title:"Production Release & Support", text:"Factory programming scripts, golden image management, and ongoing firmware maintenance and OTA update support." },
+  { n:"01", title: "Firmware Architecture", text: "Selecting the right MCU and RTOS strategy based on power and performance needs." },
+  { n:"02", title: "Development & Driver Logic", text: "Coding in C/C++/MicroPython with layered abstraction for hardware and peripherals." },
+  { n:"03", title: "Debugging & QA", text: "Logic analysis and JTAG debugging to ensure 100% stable communication and memory safety." },
+  { n:"04", title: "Production Ready Export", text: "Generating flashable binaries (.hex/.bin), API documentation, and protocol sheets." },
+  { n:"05", title: "Deployment Support", text: "Handover of source code, test reports, and optional OTA update/Dashboard integration." },
 ];
 
 export default function EmbeddedDevelopment() {
@@ -291,7 +292,7 @@ export default function EmbeddedDevelopment() {
               <span>$</span> embedded --init project <div className="ed-cursor" />
             </div>
             <h1>Embedded<br /><em>Development</em></h1>
-            <p className="ed-hero-sub">Bare-metal firmware, RTOS integration, and Linux BSP development — from concept to deployed hardware, we own the full stack.</p>
+            <p className="ed-hero-sub">From Firmware to Functionality – We Power the Core of Innovation with optimized, high-performance embedded solutions.</p>
             <div className="ed-hero-actions">
               <button className="ed-btn-fill">Start a Project &rsaquo;</button>
               <button className="ed-btn-ghost">See Our Stack</button>
@@ -379,7 +380,7 @@ export default function EmbeddedDevelopment() {
           <div>
             <div className="ed-eyebrow">Track Record</div>
             <div className="ed-stitle">Proven in <em>Field</em></div>
-            <p style={{ color:"#666", lineHeight:"1.8", fontSize:".94rem" }}>Our firmware runs in production devices across industrial IoT, medical wearables, smart agriculture, and consumer electronics — millions of cycles, zero silent failures.</p>
+            <p style={{ color:"#666", lineHeight:"1.8", fontSize:".94rem" }}>Our firmware powers innovation across IoT & Smart Devices, Industrial Automation, EV Controllers/BMS, Smart Home Products, Healthcare, and EdTech Hardware.</p>
             <div className="ed-stat-blocks">
               {statBlocks.map((s, i) => (
                 <div className="ed-stat-block" key={i}>

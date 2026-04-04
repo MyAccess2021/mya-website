@@ -219,12 +219,12 @@ export default function ESDCompliance() {
       {/* HERO */}
       <div className="esd-hero">
         <div className="esd-hero-left">
-          <div className="esd-breadcrumb">Services <span>›</span> ESD Compliance</div>
+          <div className="esd-breadcrumb">Services <span>›</span> EMI/EMC Pre-Compliance</div>
           <span className="esd-hero-tag"><span className="esd-tag-dot"></span> Active Compliance Program</span>
           <h1 className="esd-hero-title">ESD<br /><em>Compliance</em><br />Checklist</h1>
-          <p className="esd-hero-desc">Protect your electronics from electrostatic discharge damage. Our systematic ESD compliance audits ensure your facility, processes, and products meet IEC and ANSI/ESD standards.</p>
+          <p className="esd-hero-desc">Avoid costly failures at the certification lab. We provide early-stage testing for Conducted & Radiated Emissions, ESD, Surge, and Immunity to ensure your hardware is market-ready.</p>
           <div className="esd-pill-list">
-            {['IEC 61340','ANSI/ESD S20.20','EN 61340-5-1','MIL-STD-1686'].map((p, i) => (
+            {['CISPR 32','FCC Part 15','IEC 61000-4','EN 55035'].map((p, i) => (
               <span key={i} className={`esd-pill${i === 0 ? ' esd-pill-active' : ''}`}>{p}</span>
             ))}
           </div>
@@ -247,10 +247,10 @@ export default function ESDCompliance() {
             <div className="esd-cp-section">
               <div className="esd-cp-section-title">Zone & Facility Controls</div>
               {[
-                { check: '✓', cls: 'esd-check-pass', text: 'EPA boundary clearly marked and signposted', tag: 'Pass', tagCls: 'esd-tag-ok' },
-                { check: '✓', cls: 'esd-check-pass', text: 'ESD floor material certified per IEC 61340-4-1', tag: 'Pass', tagCls: 'esd-tag-ok' },
-                { check: '✗', cls: 'esd-check-fail', text: 'Ionizer calibration records within 12 months', tag: 'Critical', tagCls: 'esd-tag-critical' },
-                { check: '!', cls: 'esd-check-warn', text: 'Humidity control maintained 40–60% RH', tag: 'Advisory', tagCls: 'esd-tag-advisory' },
+                { check: '✓', cls: 'esd-check-pass', text: 'Conducted Emissions (LISN) - 150kHz to 30MHz', tag: 'Pass', tagCls: 'esd-tag-ok' },
+                { check: '✓', cls: 'esd-check-pass', text: 'Radiated Emissions - 30MHz to 1GHz (Vertical)', tag: 'Warn (3dB Margin)', tagCls: 'esd-tag-ok' },
+                { check: '✗', cls: 'esd-check-fail', text: 'ESD Immunity - ±8kV Air Discharge', tag: 'Critical (Reset Observed)', tagCls: 'esd-tag-critical' },
+                { check: '!', cls: 'esd-check-warn', text: 'Surge Immunity - 1kV Differential Mode', tag: 'Pass', tagCls: 'esd-tag-advisory' },
               ].map((item, i) => (
                 <div key={i} className="esd-cp-item">
                   <div className={`esd-cp-check ${item.cls}`}>{item.check}</div>
@@ -296,9 +296,9 @@ export default function ESDCompliance() {
         <h2 className="esd-section-title">We Audit Against Global ESD Standards</h2>
         <div className="esd-standards-grid">
           {[
-            { logo: 'IEC\n61340', full: 'International Electrotechnical Commission', title: 'Electrostatics — Protection of Electronic Devices', desc: 'The global benchmark for ESD control programs. Parts 4 and 5 cover test methods, EPA requirements, and packaging specifications.' },
-            { logo: 'ANSI/\nESD', full: 'American National Standards Institute', title: 'S20.20 ESD Control Program Standard', desc: 'The most widely adopted ESD standard in electronics manufacturing. Covers facility design, personnel, and handling procedures.' },
-            { logo: 'MIL-\nSTD', full: 'US Department of Defense', title: 'MIL-STD-1686 — Defense ESD Requirements', desc: 'Required for defense and aerospace electronics. Strict requirements for handling ESDS items throughout the supply chain.' },
+            { logo: 'CISPR\n32/35', full: 'Multimedia Equipment Compliance', title: 'Emissions & Immunity Standards', desc: 'The gold standard for IT and multimedia gear. We test conducted/radiated emissions and ensure your device handles external interference.' },
+            { logo: 'IEC\n61000', full: 'International Electrotechnical Commission', title: 'Industrial & Residential Immunity', desc: 'Covers the "Big 4": ESD (4-2), EFT/Burst (4-4), Surge (4-5), and Conducted Immunity (4-6). Essential for CE marking.' },
+            { logo: 'FCC\nPART 15', full: 'Federal Communications Commission', title: 'US Radio Frequency Requirements', desc: 'Mandatory for products sold in the USA. We verify your digital circuitry doesn’t exceed unintentional radiation limits.' },
           ].map((std, i) => (
             <div key={i} className="esd-std-card">
               <div className="esd-std-logo" style={{ whiteSpace: 'pre-line' }}>{std.logo}</div>
@@ -324,10 +324,22 @@ export default function ESDCompliance() {
         <p className="esd-section-sub">Every checklist item is mapped to a specific standard clause, making it easy to demonstrate compliance to customers and auditors.</p>
         <div className="esd-cat-grid">
           {[
-            { icon: '🏭', title: 'Facility & EPA Controls', count: '12 checklist items', items: ['EPA boundary definition and signage','ESD floor resistance measurements','Ionizer placement and calibration records','Humidity and temperature logs','Access control for non-ESD trained personnel'] },
-            { icon: '👤', title: 'Personnel Grounding', count: '10 checklist items', items: ['Wrist strap continuity testing procedures','ESD footwear certification and testing','ESD garment requirements and testing','Operator body voltage monitoring','Training records and competency verification'] },
-            { icon: '🔧', title: 'Workstation Equipment', count: '14 checklist items', items: ['Worksurface resistance to ground measurement','Grounding cord and common point bonding','ESD-safe tools and solder equipment','Insulators identification and control','Soldering station grounding verification'] },
-            { icon: '📦', title: 'Packaging & Handling', count: '14 checklist items', items: ['ESD shielding bag specification compliance','Component storage and labeling requirements','Transport container resistance verification','Component handling procedures documentation','Receiving and outgoing inspection checklists'] },
+          { 
+    icon: '📡', title: 'Emission Testing', count: 'Radiated & Conducted', 
+    items: ['Radiated Emissions (30MHz - 6GHz)','Conducted Emissions via LISN','Harmonics and Flicker (61000-3-2)','Spectrum Analysis for Peak/QP/Avg'] 
+  },
+  { 
+    icon: '⚡', title: 'Transient Immunity', count: 'High Voltage Simulation', 
+    items: ['ESD (Contact ±8kV / Air ±15kV)','EFT / Burst (Power & I/O lines)','Surge (Lightning/Switching)','Voltage Dips & Interruptions'] 
+  },
+  { 
+    icon: '📶', title: 'RF Immunity', count: 'Signal Interference', 
+    items: ['Radiated RF Immunity (80MHz - 1GHz+)','Conducted RF Immunity (150kHz - 80MHz)','Magnetic Field Immunity','RF Shielding Effectiveness'] 
+  },
+  { 
+    icon: '📋', title: 'Documentation & Fixes', count: 'Reporting', 
+    items: ['Raw Data & Peak Table Screenshots','Annotated Test Observations','Risk Assessment & Fail Root Cause','EMI Mitigation Recommendations'] 
+  },
           ].map((cat, i) => (
             <div key={i} className="esd-cat-card">
               <div className="esd-cat-card-header">
@@ -362,11 +374,11 @@ export default function ESDCompliance() {
             <h2 className="esd-section-title">How the ESD Audit Works</h2>
             <p className="esd-section-sub" style={{ marginBottom: '2.5rem' }}>A thorough on-site or documentation-based review that leaves no compliance gap unidentified.</p>
             {[
-              { num: '01', title: 'Scope Definition', desc: 'Define applicable standards, facility scope, and product sensitivity levels (HBM, CDM, MM classifications).' },
-              { num: '02', title: 'Document Review', desc: 'Review existing ESD control plan, training records, test logs, and previous audit findings.' },
-              { num: '03', title: 'Physical Inspection', desc: 'On-site walkthrough with calibrated test instruments. Measure floor, worksurface, personnel, and packaging resistance.' },
-              { num: '04', title: 'Gap Identification', desc: 'Categorize findings as critical non-conformances, advisories, and observations with standard clause references.' },
-              { num: '05', title: 'Compliance Report', desc: 'Deliver a structured report with corrective action plan, suggested timelines, and re-audit schedule.' },
+              { num: '01', title: 'EUT Setup', desc: 'Configure the Device Under Test (DUT) with cables, grounding, and operational firmware.' },
+              { num: '02', title: 'Baseline Scan', desc: ' Initial peak detection scan to identify "hot" frequencies and transient sensitivities.' },
+              { num: '03', title: 'Formal Pre-Scan', desc: 'Full sweep against Limit Lines (CISPR/FCC) using Quasi-Peak and Average detectors.' },
+              { num: '04', title: 'Mitigation (If Failed)', desc: 'On-the-spot troubleshooting using ferrites, capacitors, or shielding changes.' },
+              { num: '05', title: 'Final Summary', desc: 'Delivery of the Pre-Compliance Report with "Safe to Certify" confidence levels.' },
             ].map((step, i) => (
               <div key={i} className="esd-process-step-item">
                 <div className="esd-ps-num">{step.num}</div>
@@ -409,11 +421,11 @@ export default function ESDCompliance() {
             </div>
             <div className="esd-rdoc-body">
               {[
-                { label: 'Floor resistance (point-to-point)', status: 'PASS — 2.2MΩ', cls: 'esd-status-pass' },
-                { label: 'Worksurface grounding', status: 'PASS — 4.1MΩ', cls: 'esd-status-pass' },
-                { label: 'Ionizer calibration date', status: 'FAIL — Expired', cls: 'esd-status-fail' },
-                { label: 'Personnel wrist strap test', status: 'PASS — Daily log OK', cls: 'esd-status-pass' },
-                { label: 'Humidity log compliance', status: 'WARN — 3 excursions', cls: 'esd-status-warn' },
+                { label: 'Conducted Emissions (L1)', status: 'PASS — 6dB Margin', cls: 'esd-status-pass' },
+                { label: 'Radiated (30-300MHz)', status: 'WARN — 1.2dB Margin', cls: 'esd-status-pass' },
+                { label: 'ESD (Contact 4kV)', status: 'FAIL — System Reboot', cls: 'esd-status-fail' },
+                { label: 'EFT (Power Line 1kV)', status: 'PASS — No Effect', cls: 'esd-status-pass' },
+                { label: 'Surge (Line-to-Line)', status: 'PASS — Resettable Fuse OK', cls: 'esd-status-warn' },
                 { label: 'ESD packaging at receiving', status: 'PASS — SOP followed', cls: 'esd-status-pass' },
                 { label: 'Training records current', status: 'PASS — All staff', cls: 'esd-status-pass' },
                 { label: 'Insulator control in EPA', status: 'FAIL — 2 violations', cls: 'esd-status-fail' },

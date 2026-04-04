@@ -167,13 +167,13 @@ const styles = `
   }
 `;
 
-const marqueeItems = ["BGA Reballing","SMD Rework","Lead-Free Soldering","Hot-Air Reflow","Selective Soldering","Conformal Coating","IPC Class 3"];
+const marqueeItems = ["SMD & THT Soldering","BGA Rework","RoHS Compliant","0201 Packages","QFN & LGA Placement","Lead-Free Soldering","ESD-Safe Workstation"];
 
 const capabilities = [
-  { no:"01", title:"BGA & Fine-Pitch Rework", text:"Reballing and replacement of BGA, LGA, QFN, and CSP packages using precision hot-air stations with X-ray joint verification after every job." },
-  { no:"02", title:"SMD Reflow & Selective", text:"Reflow profile optimization for lead-free alloys, selective soldering for mixed-technology assemblies, and wave soldering for through-hole." },
-  { no:"03", title:"Hand Soldering & Touch-Up", text:"IPC 7711/7721 certified hand soldering for prototypes, engineering samples, and production touch-up with full traceability documentation." },
-  { no:"04", title:"Cleaning & Conformal Coating", text:"Post-solder flux removal, aqueous and solvent cleaning, selective conformal coating application for environmental protection of assemblies." },
+  { no:"01", title:"SMD & THT Soldering", text:"Specializing in everything from 0201 packages to large connectors, including double-sided and mixed technology assemblies." },
+  { no:"02", title:"Rework & Replacement", text:"Faulty part removal, pad cleaning, and fresh placement for BGA, QFN, LGA, SOP, and DIP components." },
+  { no:"03", title:"Lead-Free & RoHS", text:"Compliance with global safety standards using high-quality no-clean and water-soluble fluxes." },
+  { no:"04", title:"Small to Mid-Batch", text:"From rapid prototypes to pilot production runs with full batch-wise traceability and documentation." },
 ];
 
 const steps = [
@@ -185,16 +185,16 @@ const steps = [
 ];
 
 const checks = [
-  { icon:"🔬", title:"Microscope-Level Accuracy", desc:"All hand work performed under 10–40× stereo microscopes for sub-mm precision" },
-  { icon:"📊", title:"Thermal Profile Logging", desc:"Every reflow cycle logged with peak temps, soak times, and ramp rates" },
-  { icon:"⚡", title:"ESD Safe Environment", desc:"Full ESD protection from component storage through to final packaging" },
-  { icon:"📋", title:"Full IPC Documentation", desc:"IPC-A-610 class 2 & 3 inspection reports delivered with every job" },
+  { icon:"🔬", title:"Microscopic Precision", desc:"Every joint is visually inspected under high-power microscopes for defects." },
+  { icon:"📊", title:"ESD-Safe Environment", desc:"Strict adherence to ESD protocols with regular workstation audits." },
+  { icon:"⚡", title:"Functional Testing", desc:"Optional continuity and power-on checks to ensure board viability." },
+  { icon:"📋", title:"Traceability", desc:"Full operator training logs and component consumption reports provided." },
 ];
 
 const stats = [
-  { val:"99.7%", title:"First-Pass Yield Rate", text:"Industry-leading yield across all rework and soldering categories with full defect traceability." },
-  { val:"24H", title:"Express Turnaround", text:"Priority service available for urgent prototype and production rework jobs without quality compromise." },
-  { val:"IPC", title:"Certified Technicians", text:"All operators hold IPC-A-610 and IPC-7711/7721 certification for class 2 and class 3 assemblies." },
+  { val:"99.7%", title:"Smallest SMD Support", text:"High-precision capability for the smallest modern surface-mount components." },
+  { val:"24H", title:"Rapid Prototyping", text:"Quick-turn rework and assembly services for R&D and startup teams." },
+  { val:"IPC", title:"RoHS Compliant", text:"Lead-free processes meeting all global environmental and safety standards." },
 ];
 
 export default function SolderingRework() {
@@ -212,7 +212,7 @@ export default function SolderingRework() {
         <div className="sr-hero-content">
           <div className="sr-badge">Service</div>
           <h1>Soldering<br />&amp; <em>Rework</em></h1>
-          <p className="sr-hero-sub">Precision thermal bonding, BGA reballing, and SMD rework — engineered for reliability at every joint, every time.</p>
+          <p className="sr-hero-sub">Precision, Reliability, and Quality in Every Joint. From 0201 packages to large connectors, we deliver high-yield soldering solutions.</p>
           <div className="sr-hero-actions">
             <button className="sr-btn-fill">Get a Quote &rsaquo;</button>
             <button className="sr-btn-ghost">View Capabilities</button>
@@ -314,8 +314,11 @@ export default function SolderingRework() {
       <div className="sr-cta">
         <h2>Ready to get <em>started?</em></h2>
         <div className="sr-cta-side">
-          <p>Send your board files and get a detailed quote within 24 hours — no commitment required.</p>
-          <button className="sr-btn-fill">Request a Quote &rsaquo;</button>
+<p>
+  Send your board files and get a detailed quote within 24 hours <br />
+  sales@myaccessio.com <br />
+  Phone: +91 8019803666
+</p>          <button className="sr-btn-fill">Request a Quote &rsaquo;</button>
         </div>
       </div>
       <Footer/>

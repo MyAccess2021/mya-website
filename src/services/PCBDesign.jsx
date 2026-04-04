@@ -122,7 +122,7 @@ height: 80vh; min-height: 600px;  display: flex;
   }
 `;
 
-const marqueeItems = ["Altium Designer","KiCad EDA","Signal Integrity","DFM Review","HDI Stackup","RF & Microwave","IPC-2581","Impedance Control"];
+const marqueeItems = ["Schematic Capture","Multi-layer PCB","Impedance Control","DFM/DFT Compliant","3D Step Export","BOM Optimization","Signal Integrity","Gerber Generation"];
 
 const layers = [
   { color:"#d4a017", name:"Top Copper (Signal)", spec:"1oz Cu" },
@@ -135,27 +135,27 @@ const layers = [
 ];
 
 const designChecks = [
-  "Controlled impedance routing for USB 3.0, PCIe, DDR5, and RF traces",
-  "Power delivery network (PDN) analysis and decoupling optimization",
-  "Thermal relief, copper pours, and heat dissipation planning",
-  "DFM (Design for Manufacture) and DFA (Design for Assembly) review",
-  "Gerber, ODB++, and IPC-2581 output formats for fabrication",
+  "Complete Schematic Capture & Power budget planning",
+  "High-speed routing with controlled impedance (up to 12 Layers)",
+  "Custom IPC-compliant library & footprint management",
+  "Signal integrity, EMI checks, and thermal zone validation",
+  "Comprehensive output: Gerbers, NC Drill, Pick & Place, and 3D Step",
 ];
 
 const tools = [
-  { icon:"🔧", name:"Altium Designer", desc:"Full schematic capture, layout, and design rule checking" },
-  { icon:"🖥️", name:"KiCad EDA", desc:"Open-standard PCB design for rapid prototyping" },
-  { icon:"📡", name:"HyperLynx", desc:"Pre/post-layout signal and power integrity analysis" },
-  { icon:"🌊", name:"Sonnet / HFSS", desc:"3D EM simulation for RF and microwave designs" },
+  { icon:"🔧", name:"EasyEDA Pro", desc:"Efficient web-based design for rapid development and production." },
+  { icon:"🖥️", name:"Altium Designer", desc:"Industry-standard for complex, high-speed multi-layer boards." },
+  { icon:"📡", name:"KiCAD 6/7", desc:"Powerful open-source suite for professional-grade PCB layout." },
+  { icon:"🌊", name:"Autodesk Eagle", desc:"Reliable design platform for IoT and embedded hardware." },
 ];
 
 const specRows = [
-  ["Layer Count","1–8 layers","Up to 32 layers"],
-  ["Min Trace/Space","5/5 mil","3/3 mil"],
-  ["Min Via Drill","0.3mm","0.1mm (laser)"],
-  ["Controlled Impedance","±10%","±5%"],
-  ["Board Size","Up to 350mm²","Custom"],
-  ["High-Speed Protocols","USB 2.0, I2C, SPI","PCIe Gen5, DDR5, USB4"],
+  ["Layer Count","1–4 Layers","Up to 12 Layers"],
+  ["Design Rules","Standard DFM","High-Density (HDI)"],
+  ["Compliance","IPC Class 2","IPC Class 3 / Mil-Spec"],
+  ["Integrity","Basic DC","High-Speed / RF Simulation"],
+  ["Outputs","Gerber / BOM","Full Manufacturing Package"],
+  ["Applications","IoT / Consumer","Medical / Automotive / Industrial"],
 ];
 
 export default function PCBDesign() {
@@ -174,7 +174,7 @@ export default function PCBDesign() {
           <div>
             <div className="pd-hero-badge">Service</div>
             <h1>PCB<br /><em>Design</em><br />Services</h1>
-            <p className="pd-hero-sub">From single-layer to 32-layer HDI boards — we design PCBs that meet signal integrity, thermal, and manufacturability requirements first time.</p>
+            <p className="pd-hero-sub">From concept to Gerber, we deliver optimized, reliable, and production-ready PCB designs meeting signal integrity, thermal, and manufacturability requirements. </p>
             <div className="pd-hero-actions">
               <button className="pd-btn-fill">Start Your Design &rsaquo;</button>
               <button className="pd-btn-ghost">View Portfolio</button>
@@ -182,7 +182,7 @@ export default function PCBDesign() {
           </div>
           <div className="pd-metrics">
             <div className="pd-metric">
-              <div><div className="pd-metric-val">32</div><div className="pd-metric-sub">Max Layer Count</div></div>
+              <div><div className="pd-metric-val">12L</div><div className="pd-metric-sub">Max Layer Count</div></div>
               <div className="pd-metric-label">HDI & Standard<br/>Stackup Design</div>
             </div>
             <div className="pd-metric">
@@ -242,8 +242,8 @@ export default function PCBDesign() {
           <div className="pd-wide-img-overlay" />
           <img src="https://images.unsplash.com/photo-1555664424-778a1e5e1b48?w=1400&q=80" alt="PCB Layout" />
           <div className="pd-wide-img-text">
-            <h3>High-Speed Digital Design</h3>
-            <p>DDR5, USB 4.0, PCIe Gen 5 — our engineers handle the hardest routing challenges.</p>
+            <h3>Versatile Industry Applications</h3>
+            <p>Serving Medical Electronics, Automotive BLDC Drivers, IoT Wearables, Industrial Control, and RF/GNSS/LoRa systems.</p>
           </div>
         </div>
       </div>
