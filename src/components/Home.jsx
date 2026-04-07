@@ -651,7 +651,7 @@ export default function Home() {
           .hero-container {
             width: 92%;
             /* On mobile, max-height removed so it can be taller */
-            height: calc(100vh - var(--header-h-mobile));
+            height: 60vh;
             max-height: 75vh;
             min-height: 360px;
           }

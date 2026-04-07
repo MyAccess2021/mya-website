@@ -50,7 +50,7 @@ height: 80vh; min-height: 600px;  display: flex;
   @keyframes pdSlide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
   /* SECTIONS */
-  .pd-section { max-width: 1320px; margin: 0 auto; padding: 3.5rem 5%; }
+  .pd-section { max-width: 1320px; margin: 0 auto; padding: 2.5rem 5%; }
   .pd-eyebrow { font-size: .67rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #f4531c; margin-bottom: .75rem; display: flex; align-items: center; gap: 10px; }
   .pd-eyebrow::before { content: ''; width: 26px; height: 2px; background: #f4531c; }
   .pd-stitle { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -1px; line-height: 1.1; margin-bottom: 1.2rem; }
@@ -84,8 +84,19 @@ height: 80vh; min-height: 600px;  display: flex;
   .pd-tool-desc { font-size: .78rem; color: #888; line-height: 1.6; }
 
   /* SPECS TABLE */
-  .pd-tbl-wrap { border: 1px solid #e8e8e8; border-radius: 12px; overflow: hidden; margin-top: 3rem; }
-  .pd-tbl { width: 100%; border-collapse: collapse; }
+    .pd-tbl-wrap { 
+    border: 1px solid #e8e8e8; 
+    border-radius: 12px; 
+    overflow-x: auto; /* Allow horizontal scrolling */
+    margin-top: 1.5rem; 
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
+  }
+
+  .pd-tbl { 
+    width: 100%; 
+    border-collapse: collapse; 
+    min-width: 600px; /* Prevents the table from squishing on small screens */
+  }
   .pd-tbl thead { background: #111; }
   .pd-tbl th { color: #fff; font-size: .67rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 1rem 1.4rem; text-align: left; }
   .pd-tbl td { padding: 1.05rem 1.4rem; border-bottom: 1px solid #e8e8e8; font-size: .88rem; background: #fff; transition: .2s; }
@@ -108,6 +119,25 @@ height: 80vh; min-height: 600px;  display: flex;
   .pd-cta-card:hover { border-color: #f4531c; transform: translateY(-3px); box-shadow: 0 12px 36px rgba(244,83,28,.08); }
   .pd-cta-card h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; }
   .pd-cta-card p { color: #666; font-size: .88rem; line-height: 1.7; margin-bottom: 2rem; }
+  
+  /* Add this inside your styles string */
+  .pd-tool-img-wrap {
+    height: 64px;          /* Fixed height for all logo containers */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .pd-tool-img {
+    max-height: 100%;      /* Ensures image doesn't exceed container height */
+    max-width: 140px;      /* Limits width so logos don't touch the edges */
+    object-fit: contain;   /* Maintains aspect ratio without stretching */
+    
+    /* OPTIONAL: If your logos are black and you want them white to match the dark theme */
+    /* filter: brightness(0) invert(1); */
+  }
 
   @media(max-width:960px) {
     .pd-hero { width: 100%; border-radius: 0; margin-top: 0; }
@@ -116,10 +146,37 @@ height: 80vh; min-height: 600px;  display: flex;
     .pd-layers-grid { grid-template-columns: 1fr; }
     .pd-tools-grid { grid-template-columns: repeat(2,1fr); }
     .pd-cta-split { grid-template-columns: 1fr; }
+     .pd-wide-img {
+      aspect-ratio: 1 / 0.8; /* Makes it a tall rectangle on mobile */
+    }
+
+    /* 2. Adjust the text position and width */
+    .pd-wide-img-text {
+      bottom: 1.5rem;
+      left: 1.5rem;
+      right: 1.5rem;
+    }
+
+    /* 3. Scale down the font sizes */
+    .pd-wide-img-text h3 {
+      font-size: 1.8rem;
+      line-height: 1.2;
+    }
+
+    .pd-wide-img-text p {
+      font-size: 0.85rem;
+      max-width: 100%; /* Let text use full width */
+    }
+
+    /* 4. Make the overlay darker on mobile for better readability */
+    .pd-wide-img-overlay {
+      background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 100%);
+    }
   }
   @media(max-width:540px) {
     .pd-tools-grid { grid-template-columns: 1fr; }
   }
+
 `;
 
 const marqueeItems = ["Schematic Capture","Multi-layer PCB","Impedance Control","DFM/DFT Compliant","3D Step Export","BOM Optimization","Signal Integrity","Gerber Generation"];
@@ -143,10 +200,30 @@ const designChecks = [
 ];
 
 const tools = [
-  { icon:"🔧", name:"EasyEDA Pro", desc:"Efficient web-based design for rapid development and production." },
-  { icon:"🖥️", name:"Altium Designer", desc:"Industry-standard for complex, high-speed multi-layer boards." },
-  { icon:"📡", name:"KiCAD 6/7", desc:"Powerful open-source suite for professional-grade PCB layout." },
-  { icon:"🌊", name:"Autodesk Eagle", desc:"Reliable design platform for IoT and embedded hardware." },
+  { 
+    img: "/assets/services/EASYEDA-removebg-preview.webp", 
+    name: "EasyEDA Pro", 
+    desc: "Efficient web-based design for rapid development and production.",
+    width: "130px" // Individual size
+  },
+  { 
+    img: "/assets/services/Screenshot_2026-04-07_133039-removebg-preview.webp", 
+    name: "Altium Designer", 
+    desc: "Industry-standard for complex, high-speed multi-layer boards.",
+    width: "150px" // Slightly wider
+  },
+  { 
+    img: "/assets/services/KiCad-Logo.svg.webp", 
+    name: "KiCAD 6/7", 
+    desc: "Powerful open-source suite for professional-grade PCB layout.",
+    width: "110px" // Scaled down
+  },
+  { 
+    img: "/assets/services/ChatGPT_Image_Apr_7__2026__01_43_22_PM-removebg-preview.webp", 
+    name: "Autodesk Eagle", 
+    desc: "Reliable design platform for IoT and embedded hardware.",
+    width: "120px" // Custom size
+  },
 ];
 
 const specRows = [
@@ -253,15 +330,23 @@ export default function PCBDesign() {
         <div className="pd-dark-inner">
           <div className="pd-dark-eyebrow">Software & Tools</div>
           <div className="pd-dark-title">Our <em>Toolchain</em></div>
-          <div className="pd-tools-grid">
-            {tools.map((t, i) => (
-              <div className="pd-tool" key={i}>
-                <span className="pd-tool-icon">{t.icon}</span>
-                <div className="pd-tool-name">{t.name}</div>
-                <div className="pd-tool-desc">{t.desc}</div>
-              </div>
-            ))}
-          </div>
+       <div className="pd-tools-grid">
+  {tools.map((t, i) => (
+    <div className="pd-tool" key={i}>
+      <div className="pd-tool-img-wrap">
+        <img 
+          src={t.img} 
+          alt={t.name} 
+          className="pd-tool-img" 
+          /* This line applies the individual width from the array */
+          style={{ width: t.width }} 
+        />
+      </div>
+      <div className="pd-tool-name">{t.name}</div>
+      <div className="pd-tool-desc">{t.desc}</div>
+    </div>
+  ))}
+</div>
         </div>
       </div>
 
