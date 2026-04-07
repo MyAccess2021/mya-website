@@ -17,7 +17,7 @@ const industries = [
   { nameKey: "ind_ems_assembly",         img: "/assets/industry/ems.webp",        path: "/services/ems-assembly" },
   { nameKey: "ind_3d",                   img: "/assets/industry/bambu-labs-a1-3d-printer-finished (1).webp",        path: "/services/3d-printing" },
   { nameKey: "ind_plastic",             img: "/assets/industry/pim.webp",        path: "/services/injection-molding" },
-  { nameKey: "ind_3d_mold",             img: "/assets/industry/product_2_4k.png",        path: "/services/mold-pipeline" },
+  { nameKey: "ind_3d_mold",             img: "/assets/industry/3D Printing mold.webp",        path: "/services/mold-pipeline" },
   { nameKey: "ind_mob",                 img: "/assets/industry/fullstack.webp",        path: "/services/fullstack" },
   { nameKey: "ind_cld_service",         img: "/assets/industry/cloud-services.webp",        path: "/services/cloud-service" },
   { nameKey: "ind_cicd",               img: "/assets/industry/cicd.webp",        path: "/services/cicd" },
