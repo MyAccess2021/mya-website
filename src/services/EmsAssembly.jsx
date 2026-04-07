@@ -258,37 +258,35 @@ const style = `
 `;
 
 const processSteps = [
-  { icon: "📋", title: "Design Review & DFM", desc: "Engineers review Gerbers, BOM, and assembly drawings. Manufacturability issues are flagged before production starts." },
-  { icon: "🖨️", title: "Solder Paste Printing", desc: "High-precision stencil printing with automated SPI inspection ensures correct paste volume and placement." },
-  { icon: "🤖", title: "SMT Pick & Place", desc: "Multi-head placement machines handle 0201 passives to large ICs at 80,000 CPH with high repeatability." },
-  { icon: "🔥", title: "Reflow Soldering", desc: "10-zone nitrogen reflow ovens with real-time thermal profiling. Every board's profile is logged." },
-  { icon: "🔍", title: "Automated Optical Inspection", desc: "3D AOI systems inspect 100% of solder joints. Defects flagged instantly with image evidence." },
-  { icon: "🕳️", title: "Through-Hole Soldering", desc: "Manual and automated wave soldering for PTH components. Selective solder for mixed boards." },
-  { icon: "🧪", title: "Functional Testing", desc: "Custom test fixtures and flying probe systems validate functionality per spec for high-volume runs." },
-  { icon: "📦", title: "Box Build & Shipping", desc: "Full system assembly — cables, mechanical parts, and firmware load. ESD-safe packaging." },
+  { icon: "📝", title: "BOM Audit", desc: "BOM optimization and alternate part suggestions to ensure supply chain stability and cost-efficiency." },
+  { icon: "📦", title: "Sourcing", desc: "Local and Global component procurement with 100% original parts and full batch traceability." },
+  { icon: "🔧", title: "Fabrication", desc: "Coordination of Rigid, Flex, or Rigid-Flex PCBs (2L to 12L) through vetted production partners." },
+  { icon: "🤖", title: "PCBA", desc: "High-precision SMD, THT, and Mixed assembly using RoHS-compliant lead-free soldering processes." },
+  { icon: "🧪", title: "Testing (QC)", desc: "Multi-stage validation: Visual inspection, ICT, continuity, and full functional power-on tests." },
+  { icon: "🔥", title: "Coating", desc: "Optional conformal coating or potting services to protect assemblies from environmental factors." },
+  { icon: "🧩", title: "Integration", desc: "Final box build including cable harnesses, connectors, and enclosure fitting (CNC/3D/Sheet Metal)." },
+  { icon: "📋", title: "Logistics", desc: "Batch records, component consumption reports, and QC sign-offs delivered with every shipment." },
 ];
 
 const capabilities = [
-  { icon: "🏭", title: "8 Dedicated SMT Lines", desc: "Mix of high-speed and high-accuracy lines. Handles 01005 components and 0.3mm pitch BGAs." },
-  { icon: "🔬", title: "X-Ray & AXI Inspection", desc: "Real-time X-ray for hidden solder joints under BGAs, QFNs, and LGAs. No defect goes unseen." },
-  { icon: "🌡️", title: "Environmental Testing", desc: "Burn-in chambers, thermal cycling, and vibration testing for defense and industrial boards." },
-  { icon: "📊", title: "Real-Time Traceability", desc: "Every component, placement, and test result tied to a unique serial number via MES." },
-  { icon: "⚡", title: "24-Hour Prototype Service", desc: "Dedicated quick-turn lane. Upload Gerbers today, hold boards tomorrow. No minimum quantity." },
+  { icon: "⚙️", title: "SMD & THT Mixed Assembly", desc: "Handling complex boards with manual and semi-automated soldering for maximum flexibility." },
+  { icon: "🔍", title: "Testing & Quality Control", desc: "ESD-safe workstations with ICT, functional testing, and full rework/repair support." },
+  { icon: "🏢", title: "Sub-System Integration", desc: "Complete assembly of housings, connectors, and mechanical integration for market-ready products." },
+  { icon: "🏷️", title: "Process Traceability", desc: "Operator-based tracking with job cards, material logs, and batch records for full accountability." },
+  { icon: "💡", title: "Prototyping & Pilot Runs", desc: "Optimized for startups and R&D teams needing reliable, repeatable quality for small to mid-scale production." },
 ];
 
 const specs = [
-  ["Minimum Component Size", "01005 (0.4×0.2mm)", true],
-  ["Minimum BGA Pitch", "0.3mm", true],
-  ["Board Size Range", "50×50mm — 600×550mm", false],
-  ["Board Thickness", "0.4mm — 6.0mm", false],
-  ["Placement Accuracy", "±0.025mm @3σ", true],
-  ["Placement Speed", "80,000 CPH per line", false],
-  ["Reflow Zones", "10-zone Nitrogen", false],
-  ["Layer Count", "1 — 32 layers", false],
-  ["Process Certification", "IPC-A-610 Class III", true],
-  ["Quality Certs", "ISO 9001, AS9100D", false],
-  ["Monthly Capacity", "500,000 boards", true],
-  ["Prototype Turnaround", "24 Hours", true],
+  ["PCB Layers", "2L to 12L", true],
+  ["Substrates", "FR4, Aluminum, High-TG, Rogers", false],
+  ["Assembly Type", "SMD, THT, Mixed", true],
+  ["Compliance", "RoHS / Lead-Free", true],
+  ["Quality Standards", "IPC-A-610 Class II/III", true],
+  ["Traceability", "MES / Job Card System", false],
+  ["Testing", "ICT, FCT, Visual", true],
+  ["Add-ons", "Conformal Coating, Potting", false],
+  ["Programming", "Firmware Burning & Verification", false],
+  ["Packaging", "ESD-Safe / Barcoded", false],
 ];
 
 const galleryItems = [
@@ -299,8 +297,11 @@ const galleryItems = [
   { src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800", label: "Robotic Pick & Place" },
 ];
 
-const marqueeWords = ["SMT Placement","Reflow Soldering","AOI Inspection","X-Ray Testing","ICT Testing","BGA Rework","Clean Room Assembly","Box Build","Lead-Free Process","Flying Probe"];
-
+const marqueeWords = [
+  "SMD & THT Assembly", "RoHS Lead-Free", "Mixed Assembly", 
+  "BOM Optimization", "Traceability Logs", "Conformal Coating", 
+  "Box Build", "Firmware Burning", "IP-Rated Enclosures", "IPC-A-610"
+];
 export default function EMSAssembly() {
   return (
     <div className="ems-wrap">
@@ -312,8 +313,8 @@ export default function EMSAssembly() {
         <div className="hero-l">
           <div className="badge"><span className="badge-dot" />Live Production Line</div>
           <h1 className="hero-title">EMS<br /><span className="org">Assembly</span></h1>
-          <div className="hero-sub">Precision Manufacturing</div>
-          <p className="hero-desc">End-to-end Electronics Manufacturing Services — from bare board to boxed product. SMT placement, through-hole, reflow, AOI, and functional testing under one roof.</p>
+          <div className="hero-sub">From Concept to Scale</div>
+          <p className="hero-desc">End-to-End Electronics Manufacturing Services — handling everything from PCB fabrication and component sourcing to final box-build integration and functional testing.</p>
           <div className="hero-stats">
             <div className="stat"><span className="stat-n">98.7%</span><span className="stat-l">First Pass Yield</span></div>
             <div className="stat"><span className="stat-n">24hr</span><span className="stat-l">Prototype Turnaround</span></div>

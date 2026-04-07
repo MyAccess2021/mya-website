@@ -27,6 +27,7 @@ import Moldpipeline from './services/Moldpipeline';
 import CloudService from './services/Cloudservice';
 import Cicd from './services/cicd';
 import PatentPage from './services/patentfilling';
+import MouseFollower from './components/MouseFollower';
 
 
 
@@ -67,6 +68,7 @@ function App() {
           </Routes>
         </div>
       </Router>
+       <MouseFollower />
     </LanguageProvider> 
   );
 }
