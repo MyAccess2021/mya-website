@@ -46,7 +46,7 @@ export default function Industries() {
         .ind-intro {
           text-align: center;
           max-width: 850px;
-          padding: 60px 20px;
+          padding: 30px 20px;
           width: 100%;
         }
         .ind-intro h1 {
@@ -173,7 +173,7 @@ export default function Industries() {
         /* Scaling section */
         .scaling-sec {
           text-align: center;
-          padding: 60px 20px 0;
+          padding: 3px 10px 0;
           width: 100%;
         }
         .scaling-sec h2 {
@@ -272,7 +272,7 @@ export default function Industries() {
               <p>{t("ind_banner_sub")}</p>
             </div>
           </div>
-          <button className="banner-btn">{t("find_reseller")}</button>
+          <button className="banner-btn">{t("find_reseller1")}</button>
         </div>
 
         <section className="scaling-sec">
@@ -280,7 +280,7 @@ export default function Industries() {
           <p>{t("scaling_sub")}</p>
           <div className="scaling-btns">
             <button className="scale-btn btn-blue">{t("explore_printers")}</button>
-            <button className="scale-btn btn-outline-blue">{t("find_reseller")}</button>
+            <button className="scale-btn btn-outline-blue">{t("find_reseller1")}</button>
           </div>
         </section>
       </main>
