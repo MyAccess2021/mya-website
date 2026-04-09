@@ -18,7 +18,7 @@ const styles = `
     margin: 0 auto;           
     border-radius: 0;          
     overflow: hidden; 
-    min-height: calc(80vh - 80px); 
+    min-height: 83vh;        
     display: flex; 
     align-items: center; 
     background: #0a0a0a; 

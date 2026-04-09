@@ -28,6 +28,11 @@ import CloudService from './services/Cloudservice';
 import Cicd from './services/cicd';
 import PatentPage from './services/patentfilling';
 import MouseFollower from './components/MouseFollower';
+import FilamentsPage from './services/Filamentspage';
+import PelletsPage from './services/Pelletspage';
+import RecyclingPage from './services/Recyclingpage';
+import ShreddingPage from './services/Shreddingpage';
+import Threedmolds from './services/Threedmoldspage';
 
 
 
@@ -65,6 +70,11 @@ function App() {
             <Route path="/services/cloud-service" element={<CloudService />} />
             <Route path="/services/cicd" element={<Cicd />} />
             <Route path="/services/patent-filing" element={<PatentPage />} />
+            <Route path="/services/filaments" element={<FilamentsPage />} />
+            <Route path="/services/pellets" element={<PelletsPage />} />
+            <Route path="/services/recycling" element={<RecyclingPage />} />
+            <Route path="/services/shredding" element={<ShreddingPage />} />
+            <Route path="/services/3d-molds" element={<Threedmolds />} />
           </Routes>
         </div>
       </Router>

@@ -18,7 +18,7 @@ const styles = `
   margin: 0; 
   border-radius: 0;         /* Keeps it full-bleed sharp */
   overflow: hidden; 
-height: 80vh; min-height: 600px;  display: flex; 
+height: 85vh; min-height: 600px;  display: flex; 
   align-items: center; 
   background: #0a0a0a; 
 }  .pd-hero-bg { position: absolute; inset: 0; }

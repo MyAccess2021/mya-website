@@ -19,7 +19,7 @@ const styles = `
   overflow: hidden; 
   
   /* CHANGE THESE TWO LINES */
-  height: 80vh;            /* Sets height to 100% of screen height */
+  height: 90vh;            /* Sets height to 100% of screen height */
   min-height: 600px;        /* Prevents it from getting too small on short screens */
   
   display: flex; 

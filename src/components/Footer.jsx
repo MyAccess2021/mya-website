@@ -151,6 +151,21 @@ export default function Footer() {
       )  : link === "EMS Assembly" ? (
         <Link to="/services/ems-assembly" style={{ color: '#888', textDecoration: 'none' }}>{link}</Link>
       ) 
+       : link === "Pellets" ? (
+        <Link to="/services/pellets" style={{ color: '#888', textDecoration: 'none' }}>{link}</Link>
+      ) 
+       : link === "Recycling" ? (
+        <Link to="/services/recycling" style={{ color: '#888', textDecoration: 'none' }}>{link}</Link>
+      ) 
+       : link === "Filaments" ? (
+        <Link to="/services/filaments" style={{ color: '#888', textDecoration: 'none' }}>{link}</Link>
+      ) 
+       : link === "Shreddering" ? (
+        <Link to="/services/shredding" style={{ color: '#888', textDecoration: 'none' }}>{link}</Link>
+      ) 
+       : link === "3D Printed Molds" ? (
+        <Link to="/services/3d-molds" style={{ color: '#888', textDecoration: 'none' }}>{link}</Link>
+      ) 
        : link === "My Safe Shutter" ? (
         /* External Link for My Safe Shutter */
         <a href="https://mysafeshutter.in/" target="_blank" rel="noopener noreferrer" style={{ color: '#888', textDecoration: 'none' }}>
